@@ -28,6 +28,7 @@
             background-color: #f1f3f6;
             color: var(--dark);
             min-height: 100vh;
+            padding-bottom: 20px;
         }
         
         /* Header Styles */
@@ -175,6 +176,7 @@
             margin-top: 20px;
             gap: 20px;
             min-height: 70vh;
+            position: relative;
         }
         
         .sidebar {
@@ -1173,6 +1175,7 @@
         @media (max-width: 992px) {
             .sidebar {
                 display: none;
+                width: 280px;
             }
             
             .product-details-modal {
@@ -1184,6 +1187,78 @@
                 flex-direction: column;
                 text-align: center;
             }
+            
+            /* FIXED: Mobile sidebar के लिए CSS */
+            .sidebar.active {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 280px;
+                height: 100vh;
+                z-index: 2000;
+                border-radius: 0;
+                overflow-y: auto;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                animation: slideInLeft 0.3s ease-out;
+            }
+            
+            .sidebar.active + .sidebar-overlay {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1999;
+            }
+            
+            @keyframes slideInLeft {
+                from {
+                    transform: translateX(-100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            /* FIXED: Mobile sidebar toggle button को ठीक किया */
+            .mobile-sidebar-toggle {
+                display: flex;
+                background: var(--primary);
+                color: white;
+                border: none;
+                border-radius: 4px;
+                padding: 10px 15px;
+                font-size: 14px;
+                cursor: pointer;
+                margin-bottom: 15px;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+            
+            .close-sidebar {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background: none;
+                border: none;
+                font-size: 20px;
+                color: var(--dark);
+                cursor: pointer;
+                z-index: 2001;
+            }
+            
+            .sidebar-overlay {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1194,6 +1269,11 @@
             
             .logo {
                 align-self: flex-start;
+                font-size: 20px;
+            }
+            
+            .logo i {
+                font-size: 24px;
             }
             
             .search-bar {
@@ -1206,18 +1286,31 @@
             .header-actions {
                 width: 100%;
                 justify-content: space-between;
+                gap: 10px;
+            }
+            
+            .header-action {
+                min-width: 50px;
+                font-size: 12px;
+            }
+            
+            .header-action i {
+                font-size: 16px;
             }
             
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 15px;
             }
             
             .modal-content {
                 max-width: 100%;
+                margin: 10px;
             }
             
             .cart-item {
                 flex-direction: column;
+                align-items: flex-start;
             }
             
             .cart-item-image {
@@ -1226,21 +1319,32 @@
                 margin-right: 0;
                 margin-bottom: 15px;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .products-grid {
-                grid-template-columns: 1fr 1fr;
+            
+            .banner-content {
+                padding: 20px 15px;
             }
             
-            .product-actions {
-                flex-direction: column;
+            .banner h2 {
+                font-size: 24px;
+            }
+            
+            .banner p {
+                font-size: 14px;
+            }
+            
+            .shop-now {
+                padding: 10px 20px;
+                font-size: 14px;
             }
             
             .products-header {
                 flex-direction: column;
                 gap: 15px;
                 align-items: flex-start;
+            }
+            
+            .products-header h2 {
+                font-size: 20px;
             }
             
             .sort-filter {
@@ -1251,8 +1355,102 @@
                 flex-grow: 1;
             }
             
+            .product-image {
+                height: 180px;
+            }
+            
+            .product-price {
+                font-size: 16px;
+            }
+            
             .admin-products-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            /* FIXED: Mobile के लिए modal padding कम किया */
+            .modal {
+                padding: 10px;
+            }
+            
+            .modal-body {
+                padding: 15px;
+            }
+            
+            .modal-header {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .btn-buy-now, .btn-add-cart {
+                padding: 8px;
+                font-size: 12px;
+            }
+            
+            .product-image {
+                height: 150px;
+            }
+            
+            .product-title {
+                font-size: 13px;
+                height: 36px;
+            }
+            
+            .product-price {
+                font-size: 15px;
+            }
+            
+            .products-header {
+                padding: 12px;
+            }
+            
+            .products-header h2 {
+                font-size: 18px;
+            }
+            
+            .admin-products-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .admin-product-card {
+                padding: 12px;
+            }
+            
+            .cart-quantity button {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .cart-quantity span {
+                width: 30px;
+            }
+            
+            .footer-logo {
+                font-size: 20px;
+            }
+            
+            .footer-contact h4 {
+                font-size: 16px;
+            }
+            
+            .footer-contact p {
+                font-size: 14px;
+            }
+            
+            .copyright {
+                font-size: 12px;
             }
         }
         
@@ -1324,73 +1522,13 @@
             text-decoration: none;
         }
         
-        /* Mobile Sidebar Toggle */
+        /* Mobile Sidebar Toggle - इसे media query में move कर दिया */
         .mobile-sidebar-toggle {
-            display: none;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 15px;
-            font-size: 14px;
-            cursor: pointer;
-            margin-bottom: 15px;
-            width: 100%;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        @media (max-width: 992px) {
-            .mobile-sidebar-toggle {
-                display: flex;
-            }
-            
-            .sidebar.active {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 280px;
-                height: 100vh;
-                z-index: 2000;
-                border-radius: 0;
-                overflow-y: auto;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            }
-            
-            .sidebar.active + .sidebar-overlay {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: 1999;
-            }
-        }
-        
-        .sidebar-overlay {
             display: none;
         }
         
         .close-sidebar {
             display: none;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 20px;
-            color: var(--dark);
-            cursor: pointer;
-        }
-        
-        @media (max-width: 992px) {
-            .close-sidebar {
-                display: block;
-            }
         }
         
         /* Loading Spinner */
@@ -1426,6 +1564,66 @@
         .view-address-btn:hover {
             background-color: #f0f8ff;
             border-radius: 3px;
+        }
+        
+        /* FIXED: Mobile के लिए extra improvements */
+        @media (max-width: 992px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .content {
+                width: 100%;
+            }
+            
+            /* Product cards को mobile पर बेहतर बनाया */
+            .product-card {
+                margin-bottom: 0;
+            }
+            
+            /* Pagination को mobile friendly बनाया */
+            .pagination {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 4px;
+            }
+            
+            .page-btn {
+                padding: 6px 10px;
+                font-size: 14px;
+                min-width: 36px;
+            }
+            
+            /* Modal header को mobile friendly बनाया */
+            .modal-header h3 {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-action {
+                min-width: 45px;
+                font-size: 11px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            .logo i {
+                font-size: 22px;
+            }
+        }
+        
+        /* FIXED: Body में थोड़ा padding bottom दिया ताकि mobile पर footer के बाद content दिखे */
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 20px;
+            }
         }
     </style>
 </head>
