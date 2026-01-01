@@ -2005,192 +2005,120 @@
         let currentPage = 1;
         const productsPerPage = 12;
         
-        // Product images for EACH CATEGORY - अलग-अलग category के लिए अलग pictures
-        const productImages = {
-            // CPU Images - Processor की pictures
-            'cpu': [
-                'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiWjeiTRoVDfTSuzWrUYb0FUT2YDU6olLd4A4StTm-PiSR6M1k',
-                'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ0D1wnDdnCFg36Dg2ek_V2jtBWPOchfwUOKOXCPzqWLOT1v1Z1qKVNpSANMtgIrcJm63l95Gv0x0jjd6tTTxAhDo9hMU6Gj7x1fv_l4CLMTnb8iH45e77GXA',
-                'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiWjeiTRoVDfTSuzWrUYb0FUT2YDU6olLd4A4StTm-PiSR6M1k'
-            ],
-            
-            // Motherboard Images
-            'motherboard': [
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTt-eY855t79MILDRf-wc2gUvYYhZ0C8pPRQ&s',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEMecAuavOrkKatleHl5Y4g6R4i4q6pLdzRA&s',
-                'https://m.media-amazon.com/images/I/810JyHmKd5L.jpg'
-            ],
-            
-            // RAM Images
-            'ram': [
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzHrEaDJz_Wu_yn-Eo0KR1rAjK9ulyzrVuVg&s',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzHrEaDJz_Wu_yn-Eo0KR1rAjK9ulyzrVuVg&s',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzHrEaDJz_Wu_yn-Eo0KR1rAjK9ulyzrVuVg&s'
-            ],
-            
-            // Storage Images
-            'storage': [
-                'https://media.kingston.com/kingston/product/SNV3S_4000GB-zm-lg.jpg',
-                'https://media.kingston.com/kingston/product/SNV3S_4000GB-zm-lg.jpg',
-                'https://media.kingston.com/kingston/product/SNV3S_4000GB-zm-lg.jpg'
-            ],
-            
-            // GPU Images - Graphics Card की pictures
-            'gpu': [
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVFqcHFon1roKlGWKjV3me9M0KEfMgaPo1cA&s',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVFqcHFon1roKlGWKjV3me9M0KEfMgaPo1cA&s',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVFqcHFon1roKlGWKjV3me9M0KEfMgaPo1cA&s'
-            ],
-            
-            // Power Supply Images
-            'psu': [
-                'https://5.imimg.com/data5/SELLER/Default/2024/1/382143987/UX/PD/NF/196422941/03-600x600-500x500.jpg',
-                'https://5.imimg.com/data5/SELLER/Default/2024/1/382143987/UX/PD/NF/196422941/03-600x600-500x500.jpg',
-                'https://5.imimg.com/data5/SELLER/Default/2024/1/382143987/UX/PD/NF/196422941/03-600x600-500x500.jpg'
-            ],
-            
-            // Cabinet Images
-            'cabinet': [
-                'https://itgadgetsonline.com/wp-content/uploads/2023/09/GAMDIAS-AURA-GC1-Mesh-RGB-Mid-tower-PC-Cabinet-1.webp',
-                'https://itgadgetsonline.com/wp-content/uploads/2023/09/GAMDIAS-AURA-GC1-Mesh-RGB-Mid-tower-PC-Cabinet-1.webp',
-                'https://itgadgetsonline.com/wp-content/uploads/2023/09/GAMDIAS-AURA-GC1-Mesh-RGB-Mid-tower-PC-Cabinet-1.webp'
-            ],
-            
-            // Cooler Images
-            'cooler': [
-                'https://www.thevaluestore.in/image/cache/catalog/2023/Deepcool/Liquid-Cooler/ag400-bk-1-270x270.jpg',
-                'https://www.thevaluestore.in/image/cache/catalog/2023/Deepcool/Liquid-Cooler/ag400-bk-1-270x270.jpg',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6K0Nbqo8_CKyQlShXYC-sOO4IwWSQokX0iA&s'
-            ],
-            
-            // Monitor Images
-            'monitor': [
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMeFYwfD_5gLix3wEC3otajO8QaiTxUTEkKw&s',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMeFYwfD_5gLix3wEC3otajO8QaiTxUTEkKw&s',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMeFYwfD_5gLix3wEC3otajO8QaiTxUTEkKw&s'
-            ],
-            
-            // Accessories Images
-            'accessory': [
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaLKpYtqb9l5qhSiOmsNutZUrZ6811PqVQig&s',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaLKpYtqb9l5qhSiOmsNutZUrZ6811PqVQig&s',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaLKpYtqb9l5qhSiOmsNutZUrZ6811PqVQig&s'
-            ]
-        };
-        
-        // Function to get image URL for a product based on category and product ID
-        function getProductImage(productName, category, productId) {
-            // Get images array for the category
-            const categoryImages = productImages[category] || productImages['cpu'];
-            
-            // Use product ID to select a consistent image for each product
-            const imageIndex = productId % categoryImages.length;
-            
-            return categoryImages[imageIndex];
-        }
-        
-        // Product data from the stock report - ALL 89 PRODUCTS
+        // Product data from the stock report - ALL 89 PRODUCTS with image URLs
         const productData = [
             // Page 1
-            { id: 1, name: "Ryzen 5 5500", price: 7212, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 5500 Desktop Processor with 6 cores and 12 threads. Base clock 3.6GHz, Max boost clock up to 4.2GHz. 19MB cache, 65W TDP." },
-            { id: 2, name: "Ryzen 3 3200G", price: 5128, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 3 3200G Desktop Processor with Radeon Vega 8 Graphics. 4 cores, 4 threads, 4.0 GHz max boost, 6MB cache, 65W TDP." },
-            { id: 3, name: "Ryzen 5 5600G", price: 11589, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 5600G Desktop Processor with Radeon Graphics. 6 cores, 12 threads, 4.4 GHz max boost, 19MB cache, 65W TDP." },
-            { id: 4, name: "AMD Ryzen 5 3400G", price: 6100, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 3400G Desktop Processor with Radeon RX Vega 11 Graphics. 4 cores, 8 threads, 4.2 GHz max boost, 6MB cache." },
-            { id: 5, name: "AMD Ryzen 5 5500GT", price: 7208, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 5500GT Desktop Processor with advanced performance for gaming and productivity." },
-            { id: 6, name: "AMD Ryzen 5 2400G Pro", price: 2500, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 2400G Pro Processor with Radeon RX Vega 11 Graphics. Business-ready features." },
-            { id: 7, name: "ASRock B450M-HDV", price: 5248, quantity: 30, category: "motherboard", status: "In Stock", description: "ASRock B450M-HDV Motherboard for AMD Ryzen processors. Micro ATX form factor, DDR4 support." },
-            { id: 8, name: "Ant Value B450MAD4-N", price: 3500, quantity: 30, category: "motherboard", status: "In Stock", description: "Ant Value B450MAD4-N Motherboard for AMD processors. Supports DDR4 memory, Micro ATX form factor." },
-            { id: 9, name: "ASUS B650M-AYW WiFi", price: 8755, quantity: 30, category: "motherboard", status: "In Stock", description: "ASUS B650M-AYW WiFi Motherboard with built-in WiFi, AM5 socket for AMD Ryzen 7000 series." },
-            { id: 10, name: "INTEL CORE I5 GEN 2", price: 1100, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i5 2nd Generation Processor for basic computing needs." },
-            { id: 11, name: "INTEL CORE I5 GEN 3", price: 1350, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i5 3rd Generation Processor with improved performance over 2nd gen." },
-            { id: 12, name: "INTEL CORE I3 GEN 2", price: 450, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i3 2nd Generation Processor for entry-level computing." },
-            { id: 13, name: "INTEL CORE I7 GEN 3", price: 3000, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i7 3rd Generation Processor for high-performance computing." },
-            { id: 14, name: "INTEL CORE I3 8TH GENERATION", price: 2100, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i3 8th Generation Processor with improved architecture and performance." },
+            { id: 1, name: "Ryzen 5 5500", price: 7212, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 5500 Desktop Processor with 6 cores and 12 threads. Base clock 3.6GHz, Max boost clock up to 4.2GHz. 19MB cache, 65W TDP.", imageUrl: "https://m.media-amazon.com/images/I/81-ohhrrgwL._AC_UF350,350_QL80_.jpg" },
+            { id: 2, name: "Ryzen 3 3200G", price: 5128, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 3 3200G Desktop Processor with Radeon Vega 8 Graphics. 4 cores, 4 threads, 4.0 GHz max boost, 6MB cache, 65W TDP.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKIJO6BYzH7m-KZyO1Kp0Bk5sTksNgA0JyFw&s" },
+            { id: 3, name: "Ryzen 5 5600G", price: 11589, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 5600G Desktop Processor with Radeon Graphics. 6 cores, 12 threads, 4.4 GHz max boost, 19MB cache, 65W TDP.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmeRSSRSnu8DGIW7U4QXUJb6kj5hNnVDy1pA&s" },
+            { id: 4, name: "AMD Ryzen 5 3400G", price: 6100, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 3400G Desktop Processor with Radeon RX Vega 11 Graphics. 4 cores, 8 threads, 4.2 GHz max boost, 6MB cache.", imageUrl: "https://m.media-amazon.com/images/I/81-ohhrrgwL._AC_UF350,350_QL80_.jpg" },
+            { id: 5, name: "AMD Ryzen 5 5500GT", price: 7208, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 5500GT Desktop Processor with advanced performance for gaming and productivity.", imageUrl: "https://m.media-amazon.com/images/I/81-ohhrrgwL._AC_UF350,350_QL80_.jpg" },
+            { id: 6, name: "AMD Ryzen 5 2400G Pro", price: 2500, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 2400G Pro Processor with Radeon RX Vega 11 Graphics. Business-ready features.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWlEbXDsIjRFQD5kv81Jn2ZCe450D5owIfXA&s" },
+            { id: 7, name: "ASRock B450M-HDV", price: 5248, quantity: 30, category: "motherboard", status: "In Stock", description: "ASRock B450M-HDV Motherboard for AMD Ryzen processors. Micro ATX form factor, DDR4 support.", imageUrl: "https://www.asrock.com/mb/photo/B450M-HDV(M1).png" },
+            { id: 8, name: "Ant Value B450MAD4-N", price: 3500, quantity: 30, category: "motherboard", status: "In Stock", description: "Ant Value B450MAD4-N Motherboard for AMD processors. Supports DDR4 memory, Micro ATX form factor.", imageUrl: "https://m.media-amazon.com/images/I/81QXNc+4o0L._AC_UF1000,1000_QL80_.jpg" },
+            { id: 9, name: "ASUS B650M-AYW WiFi", price: 8755, quantity: 30, category: "motherboard", status: "In Stock", description: "ASUS B650M-AYW WiFi Motherboard with built-in WiFi, AM5 socket for AMD Ryzen 7000 series.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8f96Jt9tu3u7O86_6b8-z80sSsC6XxjzZoQ&s" },
+            { id: 10, name: "INTEL CORE I5 GEN 2", price: 1100, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i5 2nd Generation Processor for basic computing needs.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL4RWHPDnb-izolPG5U2Ts43TJeIcnzDFJbA&s" },
+            { id: 11, name: "INTEL CORE I5 GEN 3", price: 1350, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i5 3rd Generation Processor with improved performance over 2nd gen.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPw9u2WP_PNy3SdfGsmrRtYVH8KpBVw0lxpA&s" },
+            { id: 12, name: "INTEL CORE I3 GEN 2", price: 450, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i3 2nd Generation Processor for entry-level computing.", imageUrl: "https://tsikart.in/wp-content/uploads/2023/05/kk-5.jpg" },
+            { id: 13, name: "INTEL CORE I7 GEN 3", price: 3000, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i7 3rd Generation Processor for high-performance computing.", imageUrl: "https://cdn.dotpe.in/longtail/store-items/8903592/HYaje13X.webp" },
+            { id: 14, name: "INTEL CORE I3 8TH GENERATION", price: 2100, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i3 8th Generation Processor with improved architecture and performance.", imageUrl: "https://www.thevaluestore.in/image/cache/data/2018%20Listings/Intel/Intel%208100/Intel-8100-1-1000x1000.jpg" },
             // Page 2
-            { id: 15, name: "INTEL CORE I5 8TH", price: 5265, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i5 8th Generation Processor with 6 cores for multitasking." },
-            { id: 16, name: "FOXIN FMB-H310", price: 2500, quantity: 30, category: "motherboard", status: "In Stock", description: "FOXIN FMB-H310 Motherboard for Intel 8th/9th generation processors." },
-            { id: 17, name: "GIGABYTE H310", price: 5089, quantity: 30, category: "motherboard", status: "In Stock", description: "GIGABYTE H310 Motherboard for Intel processors, DDR4 support, reliable performance." },
-            { id: 18, name: "INTEL CORE I3 9TH", price: 2500, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i3 9th Generation Processor with improved clock speeds." },
-            { id: 19, name: "INTEL CORE I5 9TH", price: 6000, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i5 9th Generation Processor, 6 cores, 6 threads, up to 4.6 GHz." },
-            { id: 20, name: "INTEL CORE I3 10TH", price: 5600, quantity: 8, category: "cpu", status: "Low Stock", description: "Intel Core i3 10th Generation Processor, 4 cores, 8 threads, up to 4.6 GHz." },
-            { id: 21, name: "INTEL CORE I5 10TH", price: 8058, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i5 10th Generation Processor, 6 cores, 12 threads, up to 4.8 GHz." },
-            { id: 22, name: "INTEL CORE I7 10TH", price: 12000, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i7 10th Generation Processor, 8 cores, 16 threads, up to 5.1 GHz." },
-            { id: 23, name: "INTEL CORE I9 10TH", price: 20000, quantity: 20, category: "cpu", status: "In Stock", description: "Intel Core i9 10th Generation Processor, 10 cores, 20 threads, up to 5.3 GHz." },
-            { id: 24, name: "Consistent H-510 Motherboard 10th", price: 4258, quantity: 21, category: "motherboard", status: "In Stock", description: "Consistent H-510 Motherboard for Intel 10th/11th generation processors." },
-            { id: 25, name: "Gigabyte H510M H Motherboard", price: 6047, quantity: 30, category: "motherboard", status: "In Stock", description: "Gigabyte H510M H Motherboard, Micro ATX, for Intel 10th/11th gen processors." },
-            { id: 26, name: "AMD Ryzen 7 9800X3D", price: 46087, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 7 9800X3D Processor with 3D V-Cache technology for gaming performance." },
-            { id: 27, name: "AMD Ryzen 9 9950X3D", price: 72487, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 9 9950X3D Flagship Processor with 3D V-Cache, 16 cores, 32 threads." },
-            { id: 28, name: "Gigabyte B760M Gaming WiFi6E GEN5", price: 11800, quantity: 30, category: "motherboard", status: "In Stock", description: "Gigabyte B760M Gaming WiFi6E GEN5 Motherboard with PCIe 5.0 support." },
-            { id: 29, name: "ZEBSMPS450", price: 499, quantity: 30, category: "psu", status: "In Stock", description: "Zebronics 450W SMPS Power Supply for basic computer builds." },
-            { id: 30, name: "Ant Value ECO400 Power Supply", price: 730, quantity: 30, category: "psu", status: "In Stock", description: "Ant Value ECO400 Power Supply, 400W, 80 Plus efficiency." },
-            // Page 3
-            { id: 31, name: "Zebronics 450W Black Gold Power Supply", price: 699, quantity: 30, category: "psu", status: "In Stock", description: "Zebronics 450W Black Gold Power Supply with black finish and gold accents." },
-            { id: 32, name: "Antec Atom V450 Gaming Power Supply", price: 1650, quantity: 30, category: "psu", status: "In Stock", description: "Antec Atom V450 Gaming Power Supply, 450W, 80 Plus Bronze certification." },
-            { id: 33, name: "Ant Esports RX550 Gaming Power Supply", price: 2987, quantity: 30, category: "psu", status: "In Stock", description: "Ant Esports RX550 Gaming Power Supply, 550W, for gaming PCs." },
-            { id: 34, name: "ASUS TUF Gaming 550B SMPS", price: 5840, quantity: 30, category: "psu", status: "In Stock", description: "ASUS TUF Gaming 550B SMPS, 550W, 80 Plus Bronze, military-grade components." },
-            { id: 35, name: "EVM 8GB DDR4 2666MHz Desktop RAM", price: 3214, quantity: 30, category: "ram", status: "In Stock", description: "EVM 8GB DDR4 2666MHz Desktop RAM, single stick, for desktop computers." },
-            { id: 36, name: "EVM ELITE 8GB DDR4", price: 5600, quantity: 30, category: "ram", status: "In Stock", description: "EVM ELITE 8GB DDR4 RAM with better heat spreader and performance." },
-            { id: 37, name: "EVM ELITE 16GB DDR4 7500", price: 9000, quantity: 30, category: "ram", status: "In Stock", description: "EVM ELITE 16GB DDR4 7500MHz High-speed RAM for gaming and content creation." },
-            { id: 38, name: "SAMSUNG DDR4 16GB", price: 8999, quantity: 30, category: "ram", status: "In Stock", description: "SAMSUNG 16GB DDR4 RAM, reliable performance from a trusted brand." },
-            { id: 39, name: "SAMSUNG DDR3 8GB", price: 600, quantity: 30, category: "ram", status: "In Stock", description: "SAMSUNG 8GB DDR3 RAM for older systems supporting DDR3 memory." },
-            { id: 40, name: "EVM DDR3 8GB", price: 550, quantity: 30, category: "ram", status: "In Stock", description: "EVM 8GB DDR3 RAM for legacy systems requiring DDR3 memory." },
-            { id: 41, name: "ANTC 8GB DDR3 1600MHZ", price: 950, quantity: 30, category: "ram", status: "In Stock", description: "ANTC 8GB DDR3 1600MHz RAM with heat spreader for better thermal performance." },
-            { id: 42, name: "WD BLUE 500GB NVME", price: 6500, quantity: 26, category: "storage", status: "In Stock", description: "WD Blue 500GB NVMe SSD with read speeds up to 2400MB/s, write speeds up to 1750MB/s." },
-            { id: 43, name: "WD BLUE 1TB NVME", price: 13000, quantity: 35, category: "storage", status: "In Stock", description: "WD Blue 1TB NVMe SSD with high-speed performance for gaming and applications." },
-            { id: 44, name: "CONSISTENT 128GB SSD NVME", price: 1500, quantity: 34, category: "storage", status: "In Stock", description: "CONSISTENT 128GB NVMe SSD for fast boot times and application loading." },
-            { id: 45, name: "CONSISTENT 256GB NVME", price: 3000, quantity: 30, category: "storage", status: "In Stock", description: "CONSISTENT 256GB NVMe SSD with good balance of capacity and performance." },
-            { id: 46, name: "CONSISTENT 500GB NVME", price: 5500, quantity: 30, category: "storage", status: "In Stock", description: "CONSISTENT 500GB NVMe SSD for storing games, applications, and files." },
+            { id: 15, name: "INTEL CORE I5 8TH", price: 5265, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i5 8th Generation Processor with 6 cores for multitasking.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjjy__ly0lMfXbN7Dr069uM6D1yKW0FUy_nw&s" },
+            { id: 16, name: "FOXIN FMB-H310", price: 2500, quantity: 30, category: "motherboard", status: "In Stock", description: "FOXIN FMB-H310 Motherboard for Intel 8th/9th generation processors.", imageUrl: "https://foxin.in/cdn/shop/files/INFO2.jpg?v=1742812251" },
+            { id: 17, name: "GIGABYTE H310", price: 5089, quantity: 30, category: "motherboard", status: "In Stock", description: "GIGABYTE H310 Motherboard for Intel processors, DDR4 support, reliable performance.", imageUrl: "https://m.media-amazon.com/images/I/711qlDGF7iL.jpg" },
+            { id: 18, name: "INTEL CORE I3 9TH", price: 2500, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i3 9th Generation Processor with improved clock speeds.", imageUrl: "https://m.media-amazon.com/images/I/71wkeSB6JnL.jpg" },
+            { id: 19, name: "INTEL CORE I5 9TH", price: 6000, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i5 9th Generation Processor, 6 cores, 6 threads, up to 4.6 GHz.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyP7zrEkANgpS2FTpaKsCzX0zBedtzDVQQFg&s" },
+            { id: 20, name: "INTEL CORE I3 10TH", price: 5600, quantity: 8, category: "cpu", status: "Low Stock", description: "Intel Core i3 10th Generation Processor, 4 cores, 8 threads, up to 4.6 GHz.", imageUrl: "https://static.toiimg.com/thumb/msid-75475945,width-400,resizemode-4/75475945.jpg" },
+            { id: 21, name: "INTEL CORE I5 10TH", price: 8058, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i5 10th Generation Processor, 6 cores, 12 threads, up to 4.8 GHz.", imageUrl: "https://static.toiimg.com/thumb/msid-75475945,width-400,resizemode-4/75475945.jpg" },
+            { id: 22, name: "INTEL CORE I7 10TH", price: 12000, quantity: 30, category: "cpu", status: "In Stock", description: "Intel Core i7 10th Generation Processor, 8 cores, 16 threads, up to 5.1 GHz.", imageUrl: "https://static.toiimg.com/thumb/msid-75475945,width-400,resizemode-4/75475945.jpg" },
+            { id: 23, name: "INTEL CORE I9 10TH", price: 20000, quantity: 20, category: "cpu", status: "In Stock", description: "Intel Core i9 10th Generation Processor, 10 cores, 20 threads, up to 5.3 GHz.", imageUrl: "https://static.toiimg.com/thumb/msid-75475945,width-400,resizemode-4/75475945.jpg" },
+            { id: 24, name: "Consistent H-510 Motherboard 10th", price: 4258, quantity: 21, category: "motherboard", status: "In Stock", description: "Consistent H-510 Motherboard for Intel 10th/11th generation processors.", imageUrl: "https://m.media-amazon.com/images/I/61+3jASNoyL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 25, name: "Gigabyte H510M H Motherboard", price: 6047, quantity: 30, category: "motherboard", status: "In Stock", description: "Gigabyte H510M H Motherboard, Micro ATX, for Intel 10th/11th gen processors.", imageUrl: "https://m.media-amazon.com/images/I/61FrJSysdfS._AC_UF1000,1000_QL80_.jpg" },
+            { id: 26, name: "AMD Ryzen 7 9800X3D", price: 46087, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 7 9800X3D Processor with 3D V-Cache technology for gaming performance.", imageUrl: "https://m.media-amazon.com/images/I/71aHvYUgX1L.jpg" },
+            { id: 27, name: "AMD Ryzen 9 9950X3D", price: 72487, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 9 9950X3D Flagship Processor with 3D V-Cache, 16 cores, 32 threads.", imageUrl: "https://m.media-amazon.com/images/I/71hZfMZNZuL._AC_UF350,350_QL80_.jpg" },
+            { id: 28, name: "Gigabyte B760M Gaming WiFi6E GEN5", price: 11800, quantity: 30, category: "motherboard", status: "In Stock", description: "Gigabyte B760M Gaming WiFi6E GEN5 Motherboard with PCIe 5.0 support.", imageUrl: "https://mdcomputers.in/cdn-cgi/image/width=500,height=500,quality=75/image/catalog/motherboard/gigabyte/b760m-gaming-wifi6e/b760m-gaming-wifi6e-image-main.webp" },
+            { id: 29, name: "ZEBSMPS450", price: 499, quantity: 30, category: "psu", status: "In Stock", description: "Zebronics 450W SMPS Power Supply for basic computer builds.", imageUrl: "https://zebronics.com/cdn/shop/products/ZEB-N450W-DSATA-pic1.jpg?v=1624686316&width=2048" },
+            { id: 30, name: "Ant Value ECO400 Power Supply", price: 730, quantity: 30, category: "psu", status: "In Stock", description: "Ant Value ECO400 Power Supply, 400W, 80 Plus efficiency.", imageUrl: "https://m.media-amazon.com/images/I/71+qLt28SWL.jpg" },
+            // Page 3 (continuing with different image URLs for each product)
+            { id: 31, name: "Zebronics 450W Black Gold Power Supply", price: 699, quantity: 30, category: "psu", status: "In Stock", description: "Zebronics 450W Black Gold Power Supply with black finish and gold accents.", imageUrl: "https://zebronics.com/cdn/shop/products/ZEB-450W-Black-gold-pic1.jpg?v=1678690008&width=2048" },
+            { id: 32, name: "Antec Atom V450 Gaming Power Supply", price: 1650, quantity: 30, category: "psu", status: "In Stock", description: "Antec Atom V450 Gaming Power Supply, 450W, 80 Plus Bronze certification.", imageUrl: "https://m.media-amazon.com/images/I/510lmD8f92L._AC_UF1000,1000_QL80_.jpg" },
+            { id: 33, name: "Ant Esports RX550 Gaming Power Supply", price: 2987, quantity: 30, category: "psu", status: "In Stock", description: "Ant Esports RX550 Gaming Power Supply, 550W, for gaming PCs.", imageUrl: "https://m.media-amazon.com/images/I/71wHGpjNjRL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 34, name: "ASUS 1000W ROG STRIX Gold Aura Edition Modular Power Supply", price: 5840, quantity: 30, category: "psu", status: "In Stock", description: "ASUS 1000W ROG STRIX Gold Aura Edition Modular Power Supply, 1000W, 80 Plus Bronze, military-grade components.", imageUrl: "https://m.media-amazon.com/images/I/815tWRqpwLL.jpg" },
+            { id: 35, name: "EVM 8GB DDR4 2666MHz Desktop RAM", price: 3214, quantity: 30, category: "ram", status: "In Stock", description: "EVM 8GB DDR4 2666MHz Desktop RAM, single stick, for desktop computers.", imageUrl: "https://m.media-amazon.com/images/I/819NQk+dHnL.jpg" },
+            { id: 36, name: "EVM ELITE 8GB DDR4", price: 5600, quantity: 30, category: "ram", status: "In Stock", description: "EVM ELITE 8GB DDR4 RAM with better heat spreader and performance.", imageUrl: "https://m.media-amazon.com/images/I/41qnT8OaqZL.jpg" },
+            { id: 37, name: "EVM ELITE 16GB DDR4 7500", price: 9000, quantity: 30, category: "ram", status: "In Stock", description: "EVM ELITE 16GB DDR4 7500MHz High-speed RAM for gaming and content creation.", imageUrl: "https://m.media-amazon.com/images/I/41qnT8OaqZL.jpg" },
+            { id: 38, name: "SAMSUNG DDR4 16GB", price: 8999, quantity: 30, category: "ram", status: "In Stock", description: "SAMSUNG 16GB DDR4 RAM, reliable performance from a trusted brand.", imageUrl: "https://i.ebayimg.com/images/g/BPkAAOSwEFNmRC~s/s-l1200.jpg" },
+            { id: 39, name: "SAMSUNG DDR3 8GB", price: 850, quantity: 30, category: "ram", status: "In Stock", description: "SAMSUNG 8GB DDR3 RAM for older systems supporting DDR3 memory.", imageUrl: "https://5.imimg.com/data5/ECOM/Default/2023/3/293596008/DZ/WD/PI/111766503/samsung-m393b1g70bh0-yk0-1x8gb-ddr3-1600mhz-ram-memory-500x500.jpg" },
+            { id: 40, name: "EVM DDR3 8GB", price: 800, quantity: 30, category: "ram", status: "In Stock", description: "EVM 8GB DDR3 RAM for legacy systems requiring DDR3 memory.", imageUrl: "https://5.imimg.com/data5/ECOM/Default/2023/3/293596008/DZ/WD/PI/111766503/samsung-m393b1g70bh0-yk0-1x8gb-ddr3-1600mhz-ram-memory-500x500.jpg" },
+            { id: 41, name: "ANTC 8GB DDR3 1600MHZ", price: 950, quantity: 30, category: "ram", status: "In Stock", description: "ANTC 8GB DDR3 1600MHz RAM with heat spreader for better thermal performance.", imageUrl: "https://m.media-amazon.com/images/I/71ZR5r1ugxL.jpg" },
+            { id: 42, name: "WD BLUE 500GB NVME", price: 6500, quantity: 26, category: "storage", status: "In Stock", description: "WD Blue 500GB NVMe SSD with read speeds up to 2400MB/s, write speeds up to 1750MB/s.", imageUrl: "https://m.media-amazon.com/images/I/61w5yE7SNCL.jpg" },
+            { id: 43, name: "WD BLUE 1TB NVME", price: 13000, quantity: 35, category: "storage", status: "In Stock", description: "WD Blue 1TB NVMe SSD with high-speed performance for gaming and applications.", imageUrl: "https://m.media-amazon.com/images/I/61ZVlgv716L.jpg" },
+            { id: 44, name: "CONSISTENT 128GB SSD NVME", price: 1500, quantity: 34, category: "storage", status: "In Stock", description: "CONSISTENT 128GB NVMe SSD for fast boot times and application loading.", imageUrl: "https://m.media-amazon.com/images/I/610lAJ-FIaL.jpg" },
+            { id: 45, name: "CONSISTENT 256GB NVME", price: 3000, quantity: 30, category: "storage", status: "In Stock", description: "CONSISTENT 256GB NVMe SSD with good balance of capacity and performance.", imageUrl: "https://m.media-amazon.com/images/I/610lAJ-FIaL.jpg" },
+            { id: 46, name: "CONSISTENT 500GB NVME", price: 5500, quantity: 30, category: "storage", status: "In Stock", description: "CONSISTENT 500GB NVMe SSD for storing games, applications, and files.", imageUrl: "https://m.media-amazon.com/images/I/610lAJ-FIaL.jpg" },
             // Page 4
-            { id: 47, name: "EVM 128 NVME", price: 1325, quantity: 30, category: "storage", status: "In Stock", description: "EVM 128GB NVMe SSD for entry-level NVMe storage solution." },
-            { id: 48, name: "EVM 500GB NVME", price: 6128, quantity: 30, category: "storage", status: "In Stock", description: "EVM 500GB NVMe SSD with fast read/write speeds for improved system performance." },
-            { id: 49, name: "CONSISTENT SATA SSD 128", price: 900, quantity: 30, category: "storage", status: "In Stock", description: "CONSISTENT 128GB SATA SSD for faster boot times compared to HDD." },
-            { id: 50, name: "CONSISTENT SATA SSD 256", price: 2000, quantity: 30, category: "storage", status: "In Stock", description: "CONSISTENT 256GB SATA SSD with reliable performance for everyday computing." },
-            { id: 51, name: "EVM SATA SSD 500 GB", price: 5000, quantity: 30, category: "storage", status: "In Stock", description: "EVM 500GB SATA SSD for ample storage space with SSD speed." },
-            { id: 52, name: "SEAGATE 1 TB HARD DISK", price: 2500, quantity: 30, category: "storage", status: "In Stock", description: "SEAGATE 1TB Hard Disk Drive for mass storage at an affordable price." },
-            { id: 53, name: "SEAGATE 500GB HARD DISH", price: 1450, quantity: 30, category: "storage", status: "In Stock", description: "SEAGATE 500GB Hard Disk Drive for basic storage needs." },
-            { id: 54, name: "ZEBRONICS 500GB HARD DISK", price: 1200, quantity: 30, category: "storage", status: "In Stock", description: "ZEBRONICS 500GB Hard Disk Drive, reliable storage solution." },
-            { id: 55, name: "WD BLUE 500GB HARD DISK", price: 1600, quantity: 30, category: "storage", status: "In Stock", description: "WD Blue 500GB Hard Disk Drive from Western Digital, trusted brand." },
-            { id: 56, name: "GT610 2GB", price: 1500, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA GeForce GT610 2GB Graphics Card for basic display output and light usage." },
-            { id: 57, name: "GT710 2GB", price: 2500, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA GeForce GT710 2GB Graphics Card, entry-level GPU for multimedia." },
-            { id: 58, name: "GT740 4GB", price: 3000, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA GeForce GT740 4GB Graphics Card for light gaming and multimedia." },
-            { id: 59, name: "RTX2030", price: 11000, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA RTX 2030 Graphics Card with ray tracing capabilities for entry-level gaming." },
-            { id: 60, name: "RTX30508GB", price: 15241, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA RTX 3050 8GB Graphics Card for 1080p gaming with ray tracing support." },
-            { id: 61, name: "RTX 4060", price: 30000, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA RTX 4060 Graphics Card for high-performance 1080p/1440p gaming." },
-            { id: 62, name: "RTX 5060", price: 35000, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA RTX 5060 Graphics Card, next-generation performance for gaming." },
-            // Page 5
-            { id: 63, name: "RTX 5090", price: 350000, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA RTX 5090 Flagship Graphics Card for 4K gaming and professional workloads." },
-            { id: 64, name: "ASRock AMD Radeon RX 6500XT", price: 11589, quantity: 30, category: "gpu", status: "In Stock", description: "ASRock AMD Radeon RX 6500XT Graphics Card with 4GB GDDR6, RDNA 2 architecture." },
-            { id: 65, name: "AMD Radeon RX 9070 XT", price: 68458, quantity: 30, category: "gpu", status: "In Stock", description: "AMD Radeon RX 9070 XT High-end Graphics Card for gaming and content creation." },
-            { id: 66, name: "ASRock AMD Radeon RX550", price: 7452, quantity: 30, category: "gpu", status: "In Stock", description: "ASRock AMD Radeon RX550 Graphics Card with 4GB GDDR5 for entry-level gaming." },
-            { id: 67, name: "POWER COLOR Red Dragon AMD RX 550", price: 3855, quantity: 30, category: "gpu", status: "In Stock", description: "POWER COLOR Red Dragon AMD RX 550 Graphics Card with 2GB GDDR5." },
-            { id: 68, name: "Ant Esports Elite 1100 Mid-Tower Computer Case", price: 2000, quantity: 30, category: "cabinet", status: "In Stock", description: "Ant Esports Elite 1100 Mid-Tower Computer Case with 3 front fans and 1 rear fan." },
-            { id: 69, name: "ZEBRONICS ZIUM Mid-Tower Gaming Cabinet", price: 1200, quantity: 30, category: "cabinet", status: "In Stock", description: "ZEBRONICS ZIUM Mid-Tower Gaming Cabinet with RGB lighting and acrylic side panel." },
-            { id: 70, name: "Zebronics Force Computer Chassis", price: 750, quantity: 30, category: "cabinet", status: "In Stock", description: "Zebronics Force Computer Chassis, Micro ATX/Mini ITX support, affordable option." },
-            { id: 71, name: "Ant Esports Crystal Z2 Mid-Tower Computer Case", price: 3500, quantity: 30, category: "cabinet", status: "In Stock", description: "Ant Esports Crystal Z2 Mid-Tower Computer Case with 3 ARGB infinity mirror fans." },
-            { id: 72, name: "Ant Esports ICE C400 CPU Cooler", price: 550, quantity: 30, category: "cooler", status: "In Stock", description: "Ant Esports ICE C400 CPU Cooler for efficient CPU cooling." },
-            { id: 73, name: "Ant Esports V8 Digital CPU Air Cooler", price: 3865, quantity: 30, category: "cooler", status: "In Stock", description: "Ant Esports V8 Digital CPU Air Cooler with LED temperature display and ARGB fans." },
-            { id: 74, name: "Ant Value AV240 240mm CPU Liquid Cooler", price: 2800, quantity: 18, category: "cooler", status: "In Stock", description: "Ant Value AV240 240mm CPU Liquid Cooler/AIO with static RGB lighting." },
-            { id: 75, name: "CORSAIR Nautilus 360 RS ARGB Liquid CPU Cooler", price: 8200, quantity: 30, category: "cooler", status: "In Stock", description: "CORSAIR Nautilus 360 RS ARGB Liquid CPU Cooler – 360mm AIO for maximum cooling." },
-            { id: 76, name: "LG Ultragear 24GS65F IPS Full HD Gaming Monitor", price: 9800, quantity: 8, category: "monitor", status: "Low Stock", description: "LG Ultragear 24GS65F IPS Full HD Gaming Monitor, 24 Inch, 1920x1080, high refresh rate." },
-            // Page 6
-            { id: 77, name: "FRONTECH 22-inch LED FHD Monitor", price: 5200, quantity: 30, category: "monitor", status: "In Stock", description: "FRONTECH 22-inch (55.88cm) LED Monitor, FHD 1920x1080, 75Hz refresh rate." },
-            { id: 78, name: "Zebronics Transformer Gaming Keyboard and Mouse", price: 1000, quantity: 22, category: "accessory", status: "In Stock", description: "Zebronics Transformer Gaming Keyboard and Mouse Combo (WIRED) for gaming enthusiasts." },
-            { id: 79, name: "Ant Esports KM500W Pro Wireless Keyboard Mouse Combo", price: 1350, quantity: 6, category: "accessory", status: "Low Stock", description: "Ant Esports KM500W Pro Wireless Gaming Keyboard Mouse Combo for cable-free gaming." },
-            { id: 80, name: "GEONIX H61", price: 1000, quantity: 10, category: "motherboard", status: "Low Stock", description: "GEONIX H61 Motherboard for Intel 2nd/3rd generation processors." },
-            { id: 81, name: "FOXIN H61", price: 1100, quantity: 11, category: "motherboard", status: "In Stock", description: "FOXIN H61 Motherboard for legacy Intel systems." },
-            { id: 82, name: "EVMN RGB MINI PWR SUPPLY 16 PIN LCD DISPLAY", price: 3500, quantity: 40, category: "accessory", status: "In Stock", description: "EVMN RGB MINI Power Supply with 16 PIN LCD Display for system monitoring." },
-            { id: 83, name: "Cosair OLED MINI 223", price: 8700, quantity: 4, category: "accessory", status: "Low Stock", description: "Cosair OLED MINI 223 display for system stats and customization." },
-            { id: 84, name: "16 pin rgb", price: 450, quantity: 80, category: "accessory", status: "In Stock", description: "16 pin RGB connector for custom lighting setups." },
-            { id: 85, name: "Quatron Gampad usb", price: 399, quantity: 5, category: "accessory", status: "Low Stock", description: "Quatron Gamepad USB for PC gaming." },
-            { id: 86, name: "Foxin wireless bluetooth gamepad (Xbox)", price: 899, quantity: 7, category: "accessory", status: "In Stock", description: "Foxin wireless bluetooth gamepad compatible with Xbox-style layout." },
-            { id: 87, name: "Foxin wireless bluetooth gamepad (ps3)", price: 780, quantity: 9, category: "accessory", status: "In Stock", description: "Foxin wireless bluetooth gamepad compatible with PS3-style layout." },
-            { id: 88, name: "GerotricsX Dual Shock (RGB)", price: 1240, quantity: 11, category: "accessory", status: "In Stock", description: "GerotricsX Dual Shock Gamepad with RGB lighting for immersive gaming." },
-            { id: 89, name: "Cosair Special Moni display cabinet 40996X", price: 16000, quantity: 15, category: "cabinet", status: "In Stock", description: "Cosair Special Monitor display cabinet 40996X for showcase or retail display." }
+            { id: 47, name: "EVM 128 NVME", price: 1325, quantity: 30, category: "storage", status: "In Stock", description: "EVM 128GB NVMe SSD for entry-level NVMe storage solution.", imageUrl: "https://m.media-amazon.com/images/I/61ZckQEhMeL.jpg" },
+            { id: 48, name: "EVM 500GB NVME", price: 6128, quantity: 30, category: "storage", status: "In Stock", description: "EVM 500GB NVMe SSD with fast read/write speeds for improved system performance.", imageUrl: "https://m.media-amazon.com/images/I/61ZckQEhMeL.jpg" },
+            { id: 49, name: "CONSISTENT SATA SSD 128", price: 900, quantity: 30, category: "storage", status: "In Stock", description: "CONSISTENT 128GB SATA SSD for faster boot times compared to HDD.", imageUrl: "https://consistent.in/wp-content/uploads/2025/01/WhatsApp-Image-2024-12-27-at-12.45.39-PM.jpeg" },
+            { id: 50, name: "CONSISTENT SATA SSD 256", price: 2000, quantity: 30, category: "storage", status: "In Stock", description: "CONSISTENT 256GB SATA SSD with reliable performance for everyday computing.", imageUrl: "https://consistent.in/wp-content/uploads/2025/01/WhatsApp-Image-2024-12-27-at-12.45.39-PM.jpeg" },
+            { id: 51, name: "CONSISTENT SATA SSD 500 GB", price: 5000, quantity: 30, category: "storage", status: "In Stock", description: "EVM 500GB SATA SSD for ample storage space with SSD speed.", imageUrl: "https://consistent.in/wp-content/uploads/2025/01/WhatsApp-Image-2024-12-27-at-12.45.39-PM.jpeg" },
+            { id: 52, name: "SEAGATE 1 TB HARD DISK", price: 2500, quantity: 30, category: "storage", status: "In Stock", description: "SEAGATE 1TB Hard Disk Drive for mass storage at an affordable price.", imageUrl: "https://m.media-amazon.com/images/I/513M9Z4kQFL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 53, name: "SEAGATE 500GB HARD DISH", price: 1450, quantity: 30, category: "storage", status: "In Stock", description: "SEAGATE 500GB Hard Disk Drive for basic storage needs.", imageUrl: "https://m.media-amazon.com/images/I/513M9Z4kQFL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 54, name: "ZEBRONICS 500GB HARD DISK", price: 1200, quantity: 30, category: "storage", status: "In Stock", description: "ZEBRONICS 500GB Hard Disk Drive, reliable storage solution.", imageUrl: "https://m.media-amazon.com/images/I/513M9Z4kQFL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 55, name: "WD BLUE 500GB HARD DISK", price: 1600, quantity: 30, category: "storage", status: "In Stock", description: "WD Blue 500GB Hard Disk Drive from Western Digital, trusted brand.", imageUrl: "https://m.media-amazon.com/images/I/513M9Z4kQFL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 56, name: "GT610 2GB", price: 2100, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA GeForce GT610 2GB Graphics Card for basic display output and light usage.", imageUrl: "https://m.media-amazon.com/images/I/81LkkH2bYNL.jpg" },
+            { id: 57, name: "GT710 2GB", price: 3000, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA GeForce GT710 2GB Graphics Card, entry-level GPU for multimedia.", imageUrl: "https://m.media-amazon.com/images/I/71xuepwxseL.jpg" },
+            { id: 58, name: "GT740 4GB", price: 3899, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA GeForce GT740 4GB Graphics Card for light gaming and multimedia.", imageUrl: "https://m.media-amazon.com/images/I/81WEGW4MxmL.jpg" },
+            { id: 59, name: "RTX2060", price: 11000, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA RTX 2030 Graphics Card with ray tracing capabilities for entry-level gaming.", imageUrl: "https://m.media-amazon.com/images/I/61sdqFNRdwL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 60, name: "RTX30508GB", price: 15241, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA RTX 3050 8GB Graphics Card for 1080p gaming with ray tracing support.", imageUrl: "https://m.media-amazon.com/images/I/51QaFKJf3+L._AC_UF1000,1000_QL80_.jpg" },
+            { id: 61, name: "RTX 4060 8GB", price: 30000, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA RTX 4060 Graphics Card for high-performance 1080p/1440p gaming.", imageUrl: "https://m.media-amazon.com/images/I/71togGpKdcL.jpg" },
+            { id: 62, name: "RTX 5060", price: 35000, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA RTX 5060 Graphics Card, next-generation performance for gaming.", imageUrl: "https://m.media-amazon.com/images/I/719JKvFQciL.jpg" },
+            // Page 5 (continuing with more products)
+            { id: 63, name: "RTX 5090", price: 350000, quantity: 30, category: "gpu", status: "In Stock", description: "NVIDIA RTX 5090 Flagship Graphics Card for 4K gaming and professional workloads.", imageUrl: "https://dynamiccomputerit.com/wp-content/uploads/2025/03/RTX-5090.jpg" },
+            { id: 64, name: "ASRock AMD Radeon RX 6500XT", price: 11589, quantity: 30, category: "gpu", status: "In Stock", description: "ASRock AMD Radeon RX 6500XT Graphics Card with 4GB GDDR6, RDNA 2 architecture.", imageUrl: "https://images.seeklogo.com/logo-png/61/1/amd-radeon-780m-logo-png_seeklogo-614312.png" },
+            { id: 65, name: "AMD Radeon RX 9070 XT", price: 68458, quantity: 30, category: "gpu", status: "In Stock", description: "AMD Radeon RX 9070 XT High-end Graphics Card for gaming and content creation.", imageUrl: "https://images.seeklogo.com/logo-png/61/1/amd-radeon-780m-logo-png_seeklogo-614312.png" },
+            { id: 66, name: "ASRock AMD Radeon RX550", price: 7452, quantity: 30, category: "gpu", status: "In Stock", description: "ASRock AMD Radeon RX550 Graphics Card with 4GB GDDR5 for entry-level gaming.", imageUrl: "https://images.seeklogo.com/logo-png/61/1/amd-radeon-780m-logo-png_seeklogo-614312.png" },
+            { id: 67, name: "POWER COLOR Red Dragon AMD RX 550", price: 3855, quantity: 30, category: "gpu", status: "In Stock", description: "POWER COLOR Red Dragon AMD RX 550 Graphics Card with 2GB GDDR5.", imageUrl: "https://m.media-amazon.com/images/I/61MJH0O5RtL.jpg" },
+            { id: 68, name: "Ant Esports Elite 1100 Mid-Tower Computer Case", price: 2000, quantity: 30, category: "cabinet", status: "In Stock", description: "Ant Esports Elite 1100 Mid-Tower Computer Case with 3 front fans and 1 rear fan.", imageUrl: "https://m.media-amazon.com/images/I/71vjp8FqE1L.jpg" },
+            { id: 69, name: "ZEBRONICS ZIUM Mid-Tower Gaming Cabinet", price: 1200, quantity: 30, category: "cabinet", status: "In Stock", description: "ZEBRONICS ZIUM Mid-Tower Gaming Cabinet with RGB lighting and acrylic side panel.", imageUrl: "https://m.media-amazon.com/images/I/81qpkPsJciL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 70, name: "Zebronics Force Computer Chassis", price: 750, quantity: 30, category: "cabinet", status: "In Stock", description: "Zebronics Force Computer Chassis, Micro ATX/Mini ITX support, affordable option.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYq5XENilDZUfZ4n6kpan_kyDiy7Z2mQPiYQ&s" },
+            { id: 71, name: "Ant Esports Crystal Z2 Mid-Tower Computer Case", price: 3500, quantity: 30, category: "cabinet", status: "In Stock", description: "Ant Esports Crystal Z2 Mid-Tower Computer Case with 3 ARGB infinity mirror fans.", imageUrl: "https://m.media-amazon.com/images/I/715eeNoG6-L._AC_UF1000,1000_QL80_.jpg" },
+            { id: 72, name: "Ant Esports ICE C400 CPU Cooler", price: 550, quantity: 30, category: "cooler", status: "In Stock", description: "Ant Esports ICE C400 CPU Cooler for efficient CPU cooling.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoqiO6TQN4UV_tRay_I5pejRjkfncH6ANBDA&s" },
+            { id: 73, name: "Ant Esports V8 Digital CPU Air Cooler", price: 3865, quantity: 30, category: "cooler", status: "In Stock", description: "Ant Esports V8 Digital CPU Air Cooler with LED temperature display and ARGB fans.", imageUrl: "https://m.media-amazon.com/images/I/61qGaWsaSoL.jpg" },
+            { id: 74, name: "Ant Value AV240 240mm CPU Liquid Cooler", price: 2800, quantity: 18, category: "cooler", status: "In Stock", description: "Ant Value AV240 240mm CPU Liquid Cooler/AIO with static RGB lighting.", imageUrl: "https://m.media-amazon.com/images/I/71uhiSGv7VL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 75, name: "CORSAIR Nautilus 360 RS ARGB Liquid CPU Cooler", price: 8200, quantity: 30, category: "cooler", status: "In Stock", description: "CORSAIR Nautilus 360 RS ARGB Liquid CPU Cooler – 360mm AIO for maximum cooling.", imageUrl: "https://m.media-amazon.com/images/I/510X4+092JL.jpg" },
+            { id: 76, name: "LG Ultragear 24GS65F IPS Full HD Gaming Monitor", price: 9800, quantity: 8, category: "monitor", status: "Low Stock", description: "LG Ultragear 24GS65F IPS Full HD Gaming Monitor, 24 Inch, 1920x1080, high refresh rate.", imageUrl: "https://m.media-amazon.com/images/I/71pa-FO4gRL._AC_UF1000,1000_QL80_.jpg" },
+            // Page 6 (last page)
+            { id: 77, name: "FRONTECH 22-inch LED FHD Monitor", price: 5200, quantity: 30, category: "monitor", status: "In Stock", description: "FRONTECH 22-inch (55.88cm) LED Monitor, FHD 1920x1080, 75Hz refresh rate.", imageUrl: "https://m.media-amazon.com/images/I/716qvJSNxbL.jpg" },
+            { id: 78, name: "Zebronics Transformer Gaming Keyboard and Mouse", price: 1300, quantity: 22, category: "accessory", status: "In Stock", description: "Zebronics Transformer Gaming Keyboard and Mouse Combo (WIRED) for gaming enthusiasts.", imageUrl: "https://m.media-amazon.com/images/I/51DY+QrEpOL.jpg" },
+            { id: 79, name: "Ant Esports KM500W Pro Wireless Keyboard Mouse Combo", price: 1350, quantity: 6, category: "accessory", status: "Low Stock", description: "Ant Esports KM500W Pro Wireless Gaming Keyboard Mouse Combo for cable-free gaming.", imageUrl: "https://m.media-amazon.com/images/I/61B3tl7HEBL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 80, name: "GEONIX H61", price: 1000, quantity: 10, category: "motherboard", status: "Low Stock", description: "GEONIX H61 Motherboard for Intel 2nd/3rd generation processors.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6JjBU7na-z5409IvrrHAo8pvpjsVzjDlirA&s" },
+            { id: 81, name: "FOXIN H61", price: 1100, quantity: 11, category: "motherboard", status: "In Stock", description: "FOXIN H61 Motherboard for legacy Intel systems.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqFcG3XECmVFSLla_VFO3LYD54cQx5eKObkA&s" },
+            { id: 82, name: "EVMN RGB MINI PWR SUPPLY 16 PIN LCD DISPLAY", price: 3500, quantity: 40, category: "accessory", status: "In Stock", description: "EVMN RGB MINI Power Supply with 16 PIN LCD Display for system monitoring.", imageUrl: "https://m.media-amazon.com/images/I/411BEgCLZ6L._SR290,290_AC_.jpg" },
+            { id: 83, name: "Hyte Y70 Touch Dual Chamber ATX Mid Tower Modern Aesthetic Case with Integrated 4K LCD Touchscreen - Black Red", price: 18700, quantity: 4, category: "cabinet", status: "Low Stock", description: " cabinet with display for system stats and customization.", imageUrl: "https://m.media-amazon.com/images/I/81jIzyFXGdL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 84, name: "MSI G321CU,144hz 4K ", price: 24450, quantity: 80, category: "monitor", status: "In Stock", description: "Best 4K monitor for PS5/Gaming .", imageUrl: "https://m.media-amazon.com/images/I/81Fw6ZJVL1L._SY450_.jpg" },
+            { id: 85, name: "Quatron Gampad usb", price: 399, quantity: 5, category: "accessory", status: "Low Stock", description: "Quatron Gamepad USB for PC gaming.", imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSAHbsAmLaIWSCpCmZuzo-o9rUM1O8Q6THzcI_Gi06WEs0GZSq8kP8d3Am6Dw4rV_cd9RkJnFXdj8BvvsqTEgxxMaP_5a-2kTNNfjpDwqmIxCqEDqmjgF3fSg" },
+            { id: 86, name: "Foxin wireless bluetooth gamepad (Xbox)", price: 899, quantity: 7, category: "accessory", status: "In Stock", description: "Foxin wireless bluetooth gamepad compatible with Xbox-style layout.", imageUrl: "https://m.media-amazon.com/images/I/71D2uZnLQ2L._AC_UF894,1000_QL80_.jpg" },
+            { id: 87, name: "Foxin wireless bluetooth gamepad (ps3)", price: 780, quantity: 9, category: "accessory", status: "In Stock", description: "Foxin wireless bluetooth gamepad compatible with PS3-style layout.", imageUrl: "https://i0.wp.com/gamebuy.in/wp-content/uploads/2023/04/ps3-controller.jpg?fit=800%2C800&ssl=1" },
+            { id: 88, name: "GerotricsX Dual Shock (RGB)", price: 1240, quantity: 11, category: "accessory", status: "In Stock", description: "GerotricsX Dual Shock Gamepad with RGB lighting for immersive gaming.", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb8c7_0xjNFZP33iYOyH1lrgqLKMKLuVD-yw&s" },
+            { id: 89, name: "Gamer 4 in 1 Gaming Set - Full Size LED RGB Light up Ergonomic Gaming Keyboard, Mouse, Mouse Pad and Headset for PC", price: 3600, quantity: 15, category: "accessory", status: "In Stock", description: "Cosair Special Monitor display cabinet 40996X for showcase or retail display.", imageUrl: "https://m.media-amazon.com/images/I/81-S2z7jFHL.jpg" }
         ];
         
         // Initialize products
         products = productData;
         filteredProducts = [...products];
+        
+        // Function to get image URL for a product
+        function getProductImage(productName, category, productId) {
+            const product = products.find(p => p.id === productId);
+            // Use the imageUrl from product data if available, otherwise use a fallback
+            if (product && product.imageUrl) {
+                return product.imageUrl;
+            }
+            
+            // Fallback to default image if none specified
+            return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdGts9fLpb2rDWPTfimHjQaqqsyYaRwhJdTg&s';
+        }
         
         // DOM Elements
         const elements = {
