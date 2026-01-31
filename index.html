@@ -3,420 +3,651 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GMA Computers - Your Tech Destination</title>
+    <title>GMA Computers - Tech Destination</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ===== GOOGLE-STYLE DESIGN SYSTEM ===== */
+        :root {
+            /* Google Material Design Colors */
+            --primary-50: #e8f0fe;
+            --primary-100: #d2e3fc;
+            --primary-200: #aecbfa;
+            --primary-300: #8ab4f8;
+            --primary-400: #669df6;
+            --primary-500: #4285f4; /* Google Blue */
+            --primary-600: #1a73e8;
+            --primary-700: #1967d2;
+            --primary-800: #185abc;
+            --primary-900: #174ea6;
+            
+            /* Secondary/Accent Colors */
+            --accent-50: #fce8e6;
+            --accent-100: #fad2cf;
+            --accent-500: #ea4335; /* Google Red */
+            --accent-600: #d93025;
+            --accent-700: #c5221f;
+            
+            /* Neutral Colors */
+            --gray-50: #f8f9fa;
+            --gray-100: #f1f3f4;
+            --gray-200: #e8eaed;
+            --gray-300: #dadce0;
+            --gray-400: #bdc1c6;
+            --gray-500: #9aa0a6;
+            --gray-600: #80868b;
+            --gray-700: #5f6368;
+            --gray-800: #3c4043;
+            --gray-900: #202124;
+            
+            /* Semantic Colors */
+            --success: #34a853;
+            --warning: #f9ab00;
+            --danger: #ea4335;
+            
+            /* Elevation Shadows (Google Material) */
+            --shadow-1: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+            --shadow-2: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+            --shadow-3: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+            --shadow-4: 0 2px 3px 0 rgba(60, 64, 67, 0.3), 0 6px 10px 4px rgba(60, 64, 67, 0.15);
+            --shadow-5: 0 4px 4px 0 rgba(60, 64, 67, 0.3), 0 8px 12px 6px rgba(60, 64, 67, 0.15);
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Spacing */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+            --space-10: 40px;
+            --space-12: 48px;
+            --space-16: 64px;
+        }
+        
+        /* ===== BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        :root {
-            --primary: #2874f0;
-            --secondary: #fb641b;
-            --light: #f0f0f0;
-            --dark: #212121;
-            --gray: #878787;
-            --success: #388e3c;
-            --warning: #ff9f00;
-            --danger: #ff5252;
         }
         
         body {
-            background-color: #f1f3f6;
-            color: var(--dark);
+            font-family: 'Google Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             min-height: 100vh;
-            padding-bottom: 20px;
+            padding-bottom: 80px; /* Space for mobile bottom nav */
         }
         
-        /* Header Styles */
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 0;
-            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 500;
+            line-height: 1.25;
+            color: var(--gray-900);
+        }
+        
+        .text-display {
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        
+        .text-headline {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+        
+        .text-title {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0.15px;
+        }
+        
+        .text-subtitle {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.1px;
+        }
+        
+        .text-body {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.25px;
+        }
+        
+        .text-caption {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.4px;
+            color: var(--gray-600);
+        }
+        
+        /* ===== LAYOUT ===== */
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+        
+        .section {
+            padding: var(--space-6) 0;
+        }
+        
+        /* ===== HEADER ===== */
+        .header {
+            background: white;
+            box-shadow: var(--shadow-1);
             position: sticky;
             top: 0;
             z-index: 1000;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 15px;
+            border-bottom: 1px solid var(--gray-200);
         }
         
         .header-container {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            height: 64px;
+            gap: var(--space-4);
         }
         
         .logo {
             display: flex;
             align-items: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
+            gap: var(--space-2);
             text-decoration: none;
+            font-weight: 500;
+            color: var(--gray-900);
+            font-size: 20px;
+            white-space: nowrap;
         }
         
-        .logo i {
-            margin-right: 8px;
-            font-size: 28px;
+        .logo-icon {
+            color: var(--primary-500);
+            font-size: 24px;
         }
         
         .search-bar {
-            flex-grow: 1;
-            max-width: 600px;
-            margin: 0 20px;
+            flex: 1;
+            max-width: 720px;
+            margin: 0 auto;
             position: relative;
         }
         
-        .search-bar input {
-            width: 100%;
-            padding: 12px 16px;
-            border: none;
-            border-radius: 2px;
-            font-size: 14px;
-            outline: none;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .search-wrapper {
+            position: relative;
+            background: var(--gray-100);
+            border-radius: var(--radius-full);
+            border: 1px solid transparent;
+            transition: var(--transition-fast);
+            overflow: hidden;
         }
         
-        .search-bar button {
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
-            background-color: white;
+        .search-wrapper:focus-within {
+            background: white;
+            border-color: var(--primary-500);
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 52px 12px 20px;
             border: none;
-            padding: 0 20px;
+            background: transparent;
+            font-size: 16px;
+            color: var(--gray-900);
+            outline: none;
+        }
+        
+        .search-button {
+            position: absolute;
+            right: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            border: none;
+            background: transparent;
+            color: var(--primary-500);
             cursor: pointer;
-            color: var(--primary);
-            border-radius: 0 2px 2px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+        
+        .search-button:hover {
+            background: var(--gray-200);
         }
         
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: var(--space-3);
+            margin-left: auto;
         }
         
         .header-action {
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: white;
+            justify-content: center;
             text-decoration: none;
-            font-size: 14px;
-            cursor: pointer;
-            position: relative;
-            min-width: 60px;
+            color: var(--gray-700);
+            padding: var(--space-2);
+            border-radius: var(--radius-md);
+            transition: var(--transition-fast);
+            min-width: 56px;
         }
         
-        .header-action i {
-            font-size: 18px;
-            margin-bottom: 4px;
+        .header-action:hover {
+            background: var(--gray-100);
+            color: var(--primary-500);
         }
         
-        .cart-count {
-            background-color: var(--secondary);
+        .header-action-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        
+        .header-action-text {
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: 4px;
+            right: 8px;
+            background: var(--accent-500);
             color: white;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
+            font-size: 10px;
+            font-weight: 500;
+            min-width: 16px;
+            height: 16px;
+            border-radius: var(--radius-full);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            position: absolute;
-            top: -5px;
-            right: -5px;
+            padding: 0 4px;
         }
         
+        /* ===== USER MENU ===== */
         .user-section {
             position: relative;
         }
         
         .user-menu {
             position: absolute;
-            top: 100%;
+            top: calc(100% + 4px);
             right: 0;
             background: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            border-radius: 4px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-3);
             min-width: 200px;
-            display: none;
-            z-index: 100;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: var(--transition-normal);
+            z-index: 1001;
         }
         
         .user-menu.active {
-            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
         
-        .user-menu a {
-            display: block;
-            padding: 12px 16px;
-            color: var(--dark);
-            text-decoration: none;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .user-menu a:hover {
-            background-color: #f9f9f9;
-        }
-        
-        /* Main Content */
-        .main-container {
+        .user-menu-item {
             display: flex;
-            margin-top: 20px;
-            gap: 20px;
-            min-height: 70vh;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-4);
+            text-decoration: none;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-100);
+            transition: var(--transition-fast);
+        }
+        
+        .user-menu-item:hover {
+            background: var(--gray-50);
+            color: var(--primary-500);
+        }
+        
+        .user-menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        .main-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: var(--space-6);
+            padding: var(--space-6) 0;
             position: relative;
         }
         
+        /* ===== SIDEBAR ===== */
         .sidebar {
-            width: 250px;
-            background: white;
-            border-radius: 4px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px 0;
-            height: fit-content;
             position: sticky;
-            top: 80px;
-            max-height: calc(100vh - 100px);
+            top: 88px;
+            height: fit-content;
+            max-height: calc(100vh - 120px);
             overflow-y: auto;
         }
         
-        .sidebar h3 {
-            padding: 0 20px 12px;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: var(--dark);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .sidebar-section {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-1);
+            margin-bottom: var(--space-4);
+            overflow: hidden;
         }
         
-        .clear-filter {
+        .sidebar-header {
+            padding: var(--space-4);
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+        
+        .clear-filters {
             background: none;
             border: none;
-            color: var(--primary);
-            font-size: 12px;
+            color: var(--primary-500);
+            font-size: 13px;
+            font-weight: 500;
             cursor: pointer;
-            padding: 2px 8px;
-            border-radius: 3px;
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
+            transition: var(--transition-fast);
         }
         
-        .clear-filter:hover {
-            background-color: #f0f8ff;
+        .clear-filters:hover {
+            background: var(--primary-50);
         }
         
-        .sidebar ul {
+        .filter-list {
             list-style: none;
+            padding: var(--space-2) 0;
         }
         
-        .sidebar li {
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background 0.2s;
+        .filter-item {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-        
-        .sidebar li:hover, .sidebar li.active {
-            background-color: #f7f7f7;
-        }
-        
-        .category-count {
-            background-color: #e0e0e0;
-            color: var(--dark);
-            font-size: 12px;
-            padding: 2px 6px;
-            border-radius: 10px;
-            min-width: 25px;
-            text-align: center;
-        }
-        
-        .content {
-            flex-grow: 1;
-            min-width: 0;
-        }
-        
-        .banner {
-            background: linear-gradient(to right, #1a237e, #3949ab);
-            border-radius: 4px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            overflow: hidden;
-            color: white;
-        }
-        
-        .banner-content {
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .banner h2 {
-            color: white;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-        
-        .banner p {
-            color: #e0e0e0;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-        
-        .shop-now {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-weight: 600;
+            justify-content: space-between;
+            padding: var(--space-2) var(--space-4);
             cursor: pointer;
-            transition: background 0.3s;
+            transition: var(--transition-fast);
+            user-select: none;
         }
         
-        .shop-now:hover {
-            background-color: #e55a16;
+        .filter-item:hover {
+            background: var(--gray-50);
+        }
+        
+        .filter-item.active {
+            background: var(--primary-50);
+            color: var(--primary-600);
+            position: relative;
+        }
+        
+        .filter-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-500);
+        }
+        
+        .filter-count {
+            background: var(--gray-200);
+            color: var(--gray-700);
+            font-size: 11px;
+            font-weight: 500;
+            padding: 1px 6px;
+            border-radius: var(--radius-full);
+            min-width: 20px;
+            text-align: center;
+        }
+        
+        .filter-item.active .filter-count {
+            background: var(--primary-100);
+            color: var(--primary-600);
+        }
+        
+        /* ===== PRODUCTS GRID ===== */
+        .content-area {
+            min-height: 600px;
+        }
+        
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: var(--space-6);
+            box-shadow: var(--shadow-2);
+            position: relative;
+            color: white;
+        }
+        
+        .hero-content {
+            padding: var(--space-8) var(--space-6);
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+        
+        .hero-title {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: var(--space-3);
+            line-height: 1.2;
+        }
+        
+        .hero-description {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: var(--space-5);
+        }
+        
+        .hero-button {
+            background: white;
+            color: var(--primary-600);
+            border: none;
+            padding: var(--space-3) var(--space-5);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            box-shadow: var(--shadow-1);
+        }
+        
+        .hero-button:hover {
+            background: var(--gray-50);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-2);
         }
         
         .products-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: white;
-            border-radius: 4px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
+            margin-bottom: var(--space-4);
+            padding: var(--space-3) 0;
         }
         
-        .products-header h2 {
-            font-size: 22px;
-            color: var(--dark);
+        .products-info {
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-3);
         }
         
         .products-count {
-            color: var(--gray);
+            color: var(--gray-600);
             font-size: 14px;
         }
         
-        .sort-filter {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .sort-control {
+            position: relative;
+            min-width: 160px;
         }
         
-        .sort-filter select {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .sort-select {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            padding-right: 40px;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
             background: white;
+            color: var(--gray-900);
             font-size: 14px;
+            cursor: pointer;
+            appearance: none;
+            transition: var(--transition-fast);
+        }
+        
+        .sort-select:hover {
+            border-color: var(--primary-500);
+        }
+        
+        .sort-icon {
+            position: absolute;
+            right: var(--space-4);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-500);
+            pointer-events: none;
         }
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
         }
         
+        /* ===== PRODUCT CARD ===== */
         .product-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: box-shadow 0.3s, transform 0.3s;
-            cursor: pointer;
             background: white;
-            display: flex;
-            flex-direction: column;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-1);
+            transition: var(--transition-normal);
+            position: relative;
+            cursor: pointer;
+            border: 1px solid transparent;
         }
         
         .product-card:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             transform: translateY(-4px);
+            box-shadow: var(--shadow-3);
+            border-color: var(--primary-200);
         }
         
-        .product-image {
+        .product-image-container {
+            position: relative;
             height: 200px;
-            background: #f5f5f5;
+            background: var(--gray-100);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 15px;
-            position: relative;
             overflow: hidden;
         }
         
-        .product-image img {
-            max-width: 100%;
-            max-height: 100%;
+        .product-image {
+            max-width: 80%;
+            max-height: 80%;
             object-fit: contain;
-            transition: transform 0.3s;
+            transition: var(--transition-normal);
         }
         
-        .product-card:hover .product-image img {
+        .product-card:hover .product-image {
             transform: scale(1.05);
         }
         
         .product-badge {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: var(--secondary);
+            top: var(--space-3);
+            left: var(--space-3);
+            background: var(--accent-500);
             color: white;
-            padding: 4px 8px;
-            border-radius: 3px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
             z-index: 1;
         }
         
-        .product-details {
-            padding: 15px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        .product-content {
+            padding: var(--space-4);
         }
         
         .product-title {
             font-size: 14px;
-            color: var(--dark);
-            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--gray-900);
+            margin-bottom: var(--space-2);
+            line-height: 1.4;
             height: 40px;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
-            line-height: 1.4;
         }
         
         .product-price {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-3);
+        }
+        
+        .current-price {
             font-size: 18px;
-            font-weight: bold;
-            color: var(--dark);
-            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--gray-900);
         }
         
-        .product-original-price {
+        .original-price {
             font-size: 14px;
-            color: var(--gray);
+            color: var(--gray-500);
             text-decoration: line-through;
-            margin-right: 8px;
         }
         
-        .product-discount {
+        .discount {
             color: var(--success);
             font-size: 13px;
             font-weight: 500;
@@ -425,175 +656,245 @@
         .product-meta {
             display: flex;
             justify-content: space-between;
-            margin-top: 10px;
+            align-items: center;
+            margin-bottom: var(--space-3);
             font-size: 12px;
-            color: var(--gray);
+            color: var(--gray-600);
         }
         
         .product-category {
-            background-color: #f0f0f0;
+            background: var(--gray-100);
             padding: 2px 8px;
-            border-radius: 3px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .cart-indicator {
+            color: var(--primary-500);
+            font-weight: 500;
         }
         
         .product-status {
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
-            margin-top: 5px;
             display: inline-block;
-            width: fit-content;
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            font-weight: 500;
+            margin-bottom: var(--space-3);
         }
         
-        .in-stock {
-            background-color: #d4edda;
-            color: #155724;
+        .status-in-stock {
+            background: rgba(52, 168, 83, 0.1);
+            color: var(--success);
         }
         
-        .low-stock {
-            background-color: #fff3cd;
-            color: #856404;
+        .status-low-stock {
+            background: rgba(249, 171, 0, 0.1);
+            color: var(--warning);
         }
         
-        .out-stock {
-            background-color: #f8d7da;
-            color: #721c24;
+        .status-out-stock {
+            background: rgba(234, 67, 53, 0.1);
+            color: var(--danger);
         }
         
         .product-actions {
             display: flex;
-            gap: 8px;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
+            gap: var(--space-2);
         }
         
-        .btn-buy-now, .btn-add-cart {
+        .action-button {
             flex: 1;
-            padding: 8px 0;
+            padding: var(--space-2) var(--space-3);
             border: none;
-            border-radius: 2px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
+            border-radius: var(--radius-md);
             font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-1);
         }
         
-        .btn-buy-now {
-            background-color: var(--secondary);
+        .buy-now-button {
+            background: var(--accent-500);
             color: white;
         }
         
-        .btn-add-cart {
-            background-color: var(--primary);
+        .buy-now-button:hover:not(:disabled) {
+            background: var(--accent-600);
+        }
+        
+        .add-cart-button {
+            background: var(--primary-500);
             color: white;
         }
         
-        .btn-buy-now:hover {
-            background-color: #e55a16;
+        .add-cart-button:hover:not(:disabled) {
+            background: var(--primary-600);
         }
         
-        .btn-add-cart:hover {
-            background-color: #1c6cd6;
-        }
-        
-        .btn-buy-now:disabled, .btn-add-cart:disabled {
-            background-color: #cccccc;
+        .action-button:disabled {
+            background: var(--gray-300);
+            color: var(--gray-500);
             cursor: not-allowed;
         }
         
+        /* ===== PAGINATION ===== */
         .pagination {
             display: flex;
             justify-content: center;
-            gap: 5px;
-            margin: 30px 0;
+            align-items: center;
+            gap: var(--space-2);
+            margin: var(--space-8) 0;
         }
         
-        .page-btn {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
+        .page-button {
+            min-width: 40px;
+            height: 40px;
+            padding: 0 var(--space-2);
+            border: 1px solid var(--gray-300);
             background: white;
-            border-radius: 4px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--gray-700);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .page-btn:hover {
-            background-color: #f0f0f0;
+        .page-button:hover:not(:disabled) {
+            border-color: var(--primary-500);
+            color: var(--primary-500);
         }
         
-        .page-btn.active {
-            background-color: var(--primary);
+        .page-button.active {
+            background: var(--primary-500);
+            border-color: var(--primary-500);
             color: white;
-            border-color: var(--primary);
         }
         
-        .page-btn:disabled {
+        .page-button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
         
-        /* Footer - SIMPLIFIED */
-        footer {
-            background-color: #212121;
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--gray-900);
             color: white;
-            padding: 30px 0 20px;
-            margin-top: 40px;
+            padding: var(--space-8) 0 var(--space-4);
+            margin-top: var(--space-8);
         }
         
         .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-6);
+        }
+        
+        .footer-brand {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            flex-direction: column;
+            gap: var(--space-3);
         }
         
         .footer-logo {
-            font-size: 24px;
-            font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: var(--space-2);
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
         }
         
-        .footer-logo i {
-            color: #2874f0;
+        .footer-logo-icon {
+            color: var(--primary-400);
         }
         
-        .footer-contact {
-            text-align: center;
-        }
-        
-        .footer-contact h4 {
-            margin-bottom: 10px;
-            color: #e0e0e0;
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #b0b0b0;
+        .footer-tagline {
+            color: var(--gray-400);
             font-size: 14px;
-            width: 100%;
+            max-width: 300px;
         }
         
-        /* Modal Styles */
+        .footer-contact h3,
+        .footer-links h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: var(--space-4);
+            color: white;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--gray-400);
+            font-size: 14px;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+        
+        .contact-item:hover {
+            color: white;
+        }
+        
+        .contact-icon {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        
+        .footer-link {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition-fast);
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--space-4);
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 12px;
+        }
+        
+        /* ===== MODALS ===== */
         .modal {
-            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            display: none;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: var(--space-4);
+            z-index: 2000;
         }
         
         .modal.active {
@@ -602,804 +903,407 @@
         
         .modal-content {
             background: white;
-            border-radius: 8px;
-            width: 100%;
+            border-radius: var(--radius-lg);
             max-width: 800px;
+            width: 100%;
             max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            box-shadow: var(--shadow-5);
         }
         
         .modal-header {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
+            padding: var(--space-5);
+            border-bottom: 1px solid var(--gray-200);
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             position: sticky;
             top: 0;
             background: white;
             z-index: 1;
-            border-radius: 8px 8px 0 0;
         }
         
-        .modal-header h3 {
-            color: var(--dark);
+        .modal-title {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--gray-900);
         }
         
-        .close-modal {
-            background: none;
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
             border: none;
-            font-size: 24px;
+            background: transparent;
+            color: var(--gray-600);
             cursor: pointer;
-            color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+        
+        .modal-close:hover {
+            background: var(--gray-100);
+            color: var(--gray-900);
         }
         
         .modal-body {
-            padding: 20px;
+            padding: var(--space-5);
+            overflow-y: auto;
+            max-height: calc(90vh - 80px);
         }
         
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-        
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        .form-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 25px;
-        }
-        
-        .btn-primary, .btn-secondary {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .btn-secondary {
-            background-color: #f0f0f0;
-            color: var(--dark);
-        }
-        
-        .btn-primary:hover {
-            background-color: #1c6cd6;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #e0e0e0;
-        }
-        
-        /* Order Success */
-        .order-success {
-            text-align: center;
-            padding: 30px 20px;
-        }
-        
-        .order-success i {
-            font-size: 60px;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-        
-        .order-success h3 {
-            color: var(--success);
-            margin-bottom: 10px;
-        }
-        
-        /* Cart */
-        .cart-container {
-            background: white;
-            border-radius: 4px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .cart-item {
-            display: flex;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .cart-item-image {
-            width: 100px;
-            height: 100px;
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .cart-item-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        
-        .cart-item-details {
-            flex-grow: 1;
-            min-width: 0;
-        }
-        
-        .cart-item-title {
-            font-weight: 500;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-        
-        .cart-item-price {
-            font-weight: bold;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-        
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .cart-quantity {
-            display: flex;
-            align-items: center;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .cart-quantity button {
-            width: 30px;
-            height: 30px;
-            background: #f5f5f5;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .cart-quantity span {
-            width: 40px;
-            text-align: center;
-        }
-        
-        .remove-item {
-            background: none;
-            border: none;
-            color: var(--danger);
-            cursor: pointer;
-            font-size: 14px;
-            padding: 5px 10px;
-            border-radius: 3px;
-        }
-        
-        .remove-item:hover {
-            background-color: #ffebee;
-        }
-        
-        .cart-summary {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-        
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        
-        .summary-total {
-            font-weight: bold;
-            font-size: 18px;
-            border-top: 1px solid #ddd;
-            padding-top: 10px;
-            margin-top: 10px;
-        }
-        
-        .checkout-btn {
-            width: 100%;
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-        
-        .checkout-btn:hover {
-            background-color: #e55a16;
-        }
-        
-        .checkout-btn:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-        
-        /* Admin Panel */
-        .admin-container {
-            background: white;
-            border-radius: 4px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .admin-tabs {
-            display: flex;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .admin-tab {
-            padding: 12px 20px;
-            cursor: pointer;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-        
-        .admin-tab.active {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-        }
-        
-        .admin-content {
+        /* ===== MOBILE BOTTOM NAV ===== */
+        .mobile-bottom-nav {
             display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid var(--gray-200);
+            padding: var(--space-2) var(--space-4);
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        .admin-content.active {
-            display: block;
+        .mobile-nav-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-2);
         }
         
-        .orders-table-container {
-            max-height: 500px;
-            overflow-y: auto;
-            border: 1px solid #eee;
-            border-radius: 4px;
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-2);
+            text-decoration: none;
+            color: var(--gray-600);
+            border-radius: var(--radius-md);
+            transition: var(--transition-fast);
         }
         
-        .orders-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
+        .mobile-nav-item.active {
+            color: var(--primary-500);
+            background: var(--primary-50);
         }
         
-        .orders-table th, .orders-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
+        .mobile-nav-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
         }
         
-        .orders-table th {
-            background-color: #f9f9f9;
-            font-weight: 600;
-            position: sticky;
-            top: 0;
-            z-index: 1;
-        }
-        
-        .order-status {
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
+        .mobile-nav-text {
+            font-size: 10px;
             font-weight: 500;
-            display: inline-block;
         }
         
-        .status-pending {
-            background-color: #fff3cd;
-            color: #856404;
-        }
-        
-        .status-confirmed {
-            background-color: #d1ecf1;
-            color: #0c5460;
-        }
-        
-        .status-shipped {
-            background-color: #cce5ff;
-            color: #004085;
-        }
-        
-        .status-delivered {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        
-        .status-cancelled {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        
-        .deliver-btn {
-            background-color: var(--success);
+        /* ===== MOBILE CATEGORY FAB ===== */
+        .mobile-category-fab {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: var(--space-4);
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-full);
+            background: var(--primary-500);
             color: white;
             border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
+            box-shadow: var(--shadow-3);
             cursor: pointer;
-            font-size: 12px;
-            display: flex;
+            z-index: 998;
+            transition: var(--transition-normal);
             align-items: center;
-            gap: 5px;
-            transition: background 0.3s;
+            justify-content: center;
         }
         
-        .deliver-btn:hover {
-            background-color: #2e7d32;
+        .mobile-category-fab:hover {
+            background: var(--primary-600);
+            transform: scale(1.1);
+            box-shadow: var(--shadow-4);
         }
         
-        .deliver-btn:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
+        .mobile-category-fab i {
+            font-size: 24px;
         }
         
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--gray);
+        /* ===== MOBILE SIDEBAR OVERLAY ===== */
+        .mobile-sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
         }
         
-        .empty-state i {
-            font-size: 50px;
-            margin-bottom: 15px;
-            color: #ddd;
+        .mobile-sidebar-overlay.active {
+            display: block;
+            opacity: 1;
+            visibility: visible;
         }
         
-        .admin-products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            max-height: 500px;
-            overflow-y: auto;
-            padding: 10px;
-        }
-        
-        .admin-product-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            padding: 15px;
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 300px;
+            max-width: 90vw;
             background: white;
+            overflow-y: auto;
+            z-index: 1002;
+            transform: translateX(-100%);
+            transition: var(--transition-normal);
+            padding: var(--space-4) 0;
         }
         
-        .admin-product-card h4 {
-            margin-bottom: 10px;
-            color: var(--dark);
+        .mobile-sidebar.active {
+            transform: translateX(0);
         }
         
-        /* Product Details Modal */
-        .product-details-modal {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+        .mobile-sidebar-header {
+            padding: 0 var(--space-4) var(--space-4);
+            border-bottom: 1px solid var(--gray-200);
+            margin-bottom: var(--space-4);
         }
         
-        .product-details-image {
-            background: #f5f5f5;
-            border-radius: 4px;
-            padding: 30px;
+        .mobile-sidebar-title {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+        
+        .mobile-sidebar-close {
+            position: absolute;
+            top: var(--space-4);
+            right: var(--space-4);
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            border: none;
+            background: transparent;
+            color: var(--gray-600);
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 300px;
+            transition: var(--transition-fast);
         }
         
-        .product-details-image img {
-            max-width: 100%;
-            max-height: 300px;
-            object-fit: contain;
+        .mobile-sidebar-close:hover {
+            background: var(--gray-100);
+            color: var(--gray-900);
         }
         
-        .product-details-info h2 {
-            margin-bottom: 15px;
-            color: var(--dark);
+        /* ===== LOADING SKELETON ===== */
+        .skeleton {
+            background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: var(--radius-md);
         }
         
-        .product-price-large {
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--dark);
-            margin-bottom: 10px;
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
         }
         
-        .product-description {
-            margin: 20px 0;
-            line-height: 1.6;
-            color: #555;
+        .skeleton-card {
+            height: 350px;
         }
         
-        .product-specs {
-            margin: 20px 0;
+        .skeleton-text {
+            height: 16px;
+            margin-bottom: var(--space-2);
         }
         
-        .spec-row {
-            display: flex;
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
+        .skeleton-text.short {
+            width: 60%;
         }
         
-        .spec-label {
-            font-weight: 500;
-            width: 120px;
-            color: #666;
-        }
-        
-        .spec-value {
-            flex-grow: 1;
-            color: var(--dark);
-        }
-        
-        /* Payment Options */
-        .payment-options {
-            margin: 20px 0;
-        }
-        
-        .payment-option {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: border-color 0.3s;
-        }
-        
-        .payment-option.selected {
-            border-color: var(--primary);
-            background-color: #f0f8ff;
-        }
-        
-        .payment-option input {
-            margin-right: 10px;
-        }
-        
-        .payment-icon {
-            margin-right: 10px;
-            font-size: 20px;
-            color: var(--primary);
-        }
-        
-        .payment-details {
-            flex-grow: 1;
-        }
-        
-        .payment-details h4 {
-            margin-bottom: 5px;
-        }
-        
-        .payment-details p {
-            color: var(--gray);
-            font-size: 14px;
-        }
-        
-        .coming-soon {
-            display: inline-block;
-            background-color: var(--warning);
-            color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-left: 10px;
-        }
-        
-        /* Notification */
+        /* ===== NOTIFICATION ===== */
         .notification {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--success);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            bottom: var(--space-4);
+            right: var(--space-4);
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-3);
+            padding: var(--space-4);
             display: flex;
             align-items: center;
-            gap: 10px;
-            z-index: 3000;
-            display: none;
+            gap: var(--space-3);
             max-width: 350px;
-        }
-        
-        .notification.error {
-            background-color: var(--danger);
-        }
-        
-        .notification.warning {
-            background-color: var(--warning);
-            color: var(--dark);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition-normal);
+            z-index: 2001;
+            display: none;
         }
         
         .notification.active {
+            transform: translateY(0);
+            opacity: 1;
             display: flex;
-            animation: slideIn 0.3s ease-out;
         }
         
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        .notification-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
         
-        /* Responsive */
+        .notification.success .notification-icon {
+            background: var(--success);
+            color: white;
+        }
+        
+        .notification.error .notification-icon {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .notification.warning .notification-icon {
+            background: var(--warning);
+            color: white;
+        }
+        
+        .notification-content {
+            flex: 1;
+        }
+        
+        .notification-title {
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        
+        .notification-message {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+        
+        .notification-close {
+            background: none;
+            border: none;
+            color: var(--gray-500);
+            cursor: pointer;
+            padding: var(--space-1);
+            border-radius: var(--radius-sm);
+            transition: var(--transition-fast);
+        }
+        
+        .notification-close:hover {
+            background: var(--gray-100);
+            color: var(--gray-900);
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 1200px) {
-            .sidebar {
-                width: 220px;
+            .main-container {
+                grid-template-columns: 240px 1fr;
             }
         }
         
         @media (max-width: 992px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
             .sidebar {
                 display: none;
-                width: 280px;
             }
             
-            .product-details-modal {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            /* FIXED: Mobile sidebar के लिए CSS */
-            .sidebar.active {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 280px;
-                height: 100vh;
-                z-index: 2000;
-                border-radius: 0;
-                overflow-y: auto;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-                animation: slideInLeft 0.3s ease-out;
-            }
-            
-            .sidebar.active + .sidebar-overlay {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: 1999;
-            }
-            
-            @keyframes slideInLeft {
-                from {
-                    transform: translateX(-100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            
-            /* FIXED: Mobile sidebar toggle button को ठीक किया */
-            .mobile-sidebar-toggle {
+            .mobile-category-fab {
                 display: flex;
-                background: var(--primary);
-                color: white;
-                border: none;
-                border-radius: 4px;
-                padding: 10px 15px;
-                font-size: 14px;
-                cursor: pointer;
-                margin-bottom: 15px;
-                width: 100%;
-                justify-content: center;
-                align-items: center;
-                gap: 8px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             }
             
-            .close-sidebar {
+            .mobile-bottom-nav {
                 display: block;
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                background: none;
-                border: none;
-                font-size: 20px;
-                color: var(--dark);
-                cursor: pointer;
-                z-index: 2001;
             }
             
-            .sidebar-overlay {
-                display: none;
+            body {
+                padding-bottom: 72px;
+            }
+            
+            .hero-content {
+                padding: var(--space-6) var(--space-4);
+            }
+            
+            .hero-title {
+                font-size: 28px;
             }
         }
         
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column;
-                gap: 15px;
+                height: 56px;
             }
             
-            .logo {
-                align-self: flex-start;
-                font-size: 20px;
-            }
-            
-            .logo i {
-                font-size: 24px;
+            .logo span {
+                display: none;
             }
             
             .search-bar {
-                order: 3;
-                margin: 10px 0 0;
-                max-width: 100%;
-                width: 100%;
+                margin: 0;
             }
             
-            .header-actions {
-                width: 100%;
-                justify-content: space-between;
-                gap: 10px;
+            .header-action-text {
+                display: none;
             }
             
             .header-action {
-                min-width: 50px;
-                font-size: 12px;
-            }
-            
-            .header-action i {
-                font-size: 16px;
+                min-width: 44px;
             }
             
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-                gap: 15px;
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: var(--space-3);
             }
             
-            .modal-content {
-                max-width: 100%;
-                margin: 10px;
+            .hero-banner {
+                border-radius: var(--radius-md);
             }
             
-            .cart-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .cart-item-image {
-                width: 100%;
-                height: 150px;
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-            
-            .banner-content {
-                padding: 20px 15px;
-            }
-            
-            .banner h2 {
-                font-size: 24px;
-            }
-            
-            .banner p {
-                font-size: 14px;
-            }
-            
-            .shop-now {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-            
-            .products-header {
-                flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
-            }
-            
-            .products-header h2 {
-                font-size: 20px;
-            }
-            
-            .sort-filter {
-                width: 100%;
-            }
-            
-            .sort-filter select {
-                flex-grow: 1;
-            }
-            
-            .product-image {
-                height: 180px;
-            }
-            
-            .product-price {
-                font-size: 16px;
-            }
-            
-            .admin-products-grid {
+            .footer-container {
                 grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            /* FIXED: Mobile के लिए modal padding कम किया */
-            .modal {
-                padding: 10px;
-            }
-            
-            .modal-body {
-                padding: 15px;
-            }
-            
-            .modal-header {
-                padding: 15px;
+                gap: var(--space-6);
             }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 var(--space-3);
+            }
+            
             .products-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 12px;
             }
             
-            .product-actions {
-                flex-direction: column;
-                gap: 8px;
+            .product-image-container {
+                height: 160px;
             }
             
-            .btn-buy-now, .btn-add-cart {
-                padding: 8px;
-                font-size: 12px;
-            }
-            
-            .product-image {
-                height: 150px;
+            .product-content {
+                padding: var(--space-3);
             }
             
             .product-title {
@@ -1407,416 +1311,415 @@
                 height: 36px;
             }
             
-            .product-price {
-                font-size: 15px;
-            }
-            
-            .products-header {
-                padding: 12px;
-            }
-            
-            .products-header h2 {
-                font-size: 18px;
-            }
-            
-            .admin-products-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            
-            .admin-product-card {
-                padding: 12px;
-            }
-            
-            .cart-quantity button {
-                width: 25px;
-                height: 25px;
-            }
-            
-            .cart-quantity span {
-                width: 30px;
-            }
-            
-            .footer-logo {
-                font-size: 20px;
-            }
-            
-            .footer-contact h4 {
+            .current-price {
                 font-size: 16px;
             }
             
-            .footer-contact p {
-                font-size: 14px;
+            .product-actions {
+                flex-direction: column;
+                gap: var(--space-1);
             }
             
-            .copyright {
+            .action-button {
+                padding: var(--space-2);
                 font-size: 12px;
             }
-        }
-        
-        /* Authentication Pages */
-        .auth-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 200px);
-            padding: 20px;
-        }
-        
-        .auth-box {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 450px;
-            padding: 30px;
-        }
-        
-        .auth-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .auth-header h2 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .auth-tabs {
-            display: flex;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .auth-tab {
-            flex: 1;
-            text-align: center;
-            padding: 12px;
-            cursor: pointer;
-            font-weight: 500;
-            color: var(--gray);
-        }
-        
-        .auth-tab.active {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-        }
-        
-        .auth-form {
-            display: none;
-        }
-        
-        .auth-form.active {
-            display: block;
-        }
-        
-        .form-footer {
-            text-align: center;
-            margin-top: 20px;
-            color: var(--gray);
-            font-size: 14px;
-        }
-        
-        .form-footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-        
-        /* Mobile Sidebar Toggle - इसे media query में move कर दिया */
-        .mobile-sidebar-toggle {
-            display: none;
-        }
-        
-        .close-sidebar {
-            display: none;
-        }
-        
-        /* Loading Spinner */
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 300px;
-            font-size: 18px;
-            color: var(--gray);
-        }
-        
-        .loading i {
-            margin-right: 10px;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .view-address-btn {
-            background: none;
-            border: none;
-            color: #2874f0;
-            cursor: pointer;
-            font-size: 12px;
-            padding: 2px 5px;
-            margin-left: 5px;
-        }
-        
-        .view-address-btn:hover {
-            background-color: #f0f8ff;
-            border-radius: 3px;
-        }
-        
-        /* FIXED: Mobile के लिए extra improvements */
-        @media (max-width: 992px) {
-            .main-container {
-                flex-direction: column;
+            
+            .mobile-nav-items {
+                gap: 0;
             }
             
-            .content {
-                width: 100%;
+            .mobile-nav-item {
+                padding: var(--space-1);
             }
             
-            /* Product cards को mobile पर बेहतर बनाया */
-            .product-card {
-                margin-bottom: 0;
-            }
-            
-            /* Pagination को mobile friendly बनाया */
-            .pagination {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 4px;
-            }
-            
-            .page-btn {
-                padding: 6px 10px;
-                font-size: 14px;
-                min-width: 36px;
-            }
-            
-            /* Modal header को mobile friendly बनाया */
-            .modal-header h3 {
-                font-size: 18px;
+            .mobile-nav-text {
+                font-size: 9px;
             }
         }
         
-        @media (max-width: 360px) {
+        @media (max-width: 400px) {
             .products-grid {
                 grid-template-columns: 1fr;
             }
             
-            .header-action {
-                min-width: 45px;
-                font-size: 11px;
+            .products-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: var(--space-3);
             }
             
-            .logo {
-                font-size: 18px;
-            }
-            
-            .logo i {
-                font-size: 22px;
+            .sort-control {
+                min-width: 100%;
             }
         }
         
-        /* FIXED: Body में थोड़ा padding bottom दिया ताकि mobile पर footer के बाद content दिखे */
-        @media (max-width: 768px) {
-            body {
-                padding-bottom: 20px;
+        /* ===== UTILITY CLASSES ===== */
+        .hidden {
+            display: none !important;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
             }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn var(--transition-normal) ease-out;
+        }
+        
+        .slide-up {
+            animation: slideUp var(--transition-normal) ease-out;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header class="header">
         <div class="container header-container">
             <a href="#" class="logo">
-                <i class="fas fa-desktop"></i>
-                GMA Computers
+                <i class="fas fa-desktop logo-icon"></i>
+                <span>GMA Computers</span>
             </a>
             
             <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Search for products, brands and more">
-                <button id="search-btn"><i class="fas fa-search"></i></button>
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="search-input" placeholder="Search for products, brands and more">
+                    <button class="search-button" id="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
             </div>
             
             <div class="header-actions">
                 <div class="user-section">
                     <div class="header-action" id="user-menu-btn">
-                        <i class="fas fa-user"></i>
-                        <span id="user-text">Login</span>
+                        <i class="fas fa-user header-action-icon"></i>
+                        <span class="header-action-text" id="user-text">Login</span>
                     </div>
                     <div class="user-menu" id="user-menu">
-                        <a href="#" id="login-link">Login</a>
-                        <a href="#" id="my-orders-link">My Orders</a>
-                        <a href="#" id="logout-link" style="display: none;">Logout</a>
+                        <a href="#" class="user-menu-item" id="login-link">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="#" class="user-menu-item" id="my-orders-link">
+                            <i class="fas fa-box"></i>
+                            <span>My Orders</span>
+                        </a>
+                        <a href="#" class="user-menu-item" id="logout-link" style="display: none;">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
                     </div>
                 </div>
                 
                 <a href="#" class="header-action" id="cart-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Cart</span>
-                    <span class="cart-count" id="cart-count">0</span>
+                    <i class="fas fa-shopping-cart header-action-icon"></i>
+                    <span class="header-action-text">Cart</span>
+                    <span class="cart-badge" id="cart-count">0</span>
                 </a>
                 
                 <a href="#" class="header-action" id="admin-btn">
-                    <i class="fas fa-cog"></i>
-                    <span>Admin</span>
+                    <i class="fas fa-cog header-action-icon"></i>
+                    <span class="header-action-text">Admin</span>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <div class="container main-container">
-        <!-- Mobile Sidebar Toggle -->
-        <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle">
-            <i class="fas fa-filter"></i> Filter Products
-        </button>
-        
-        <!-- Sidebar (Categories) -->
-        <div class="sidebar" id="sidebar">
-            <button class="close-sidebar" id="close-sidebar">&times;</button>
-            <h3>Categories <button class="clear-filter" id="clear-filter">Clear</button></h3>
-            <ul id="category-list">
-                <!-- Categories will be loaded dynamically -->
-            </ul>
-            
-            <h3>Stock Status</h3>
-            <ul id="status-filter">
-                <li data-status="all" class="active">All Products <span class="category-count" id="count-all">0</span></li>
-                <li data-status="In Stock">In Stock <span class="category-count" id="count-instock">0</span></li>
-                <li data-status="Low Stock">Low Stock <span class="category-count" id="count-lowstock">0</span></li>
-            </ul>
-        </div>
-        <div class="sidebar-overlay" id="sidebar-overlay"></div>
-        
-        <!-- Content Area -->
-        <div class="content">
-            <!-- Banner -->
-            <div class="banner">
-                <div class="banner-content">
-                    <h2>Build Your Dream PC</h2>
-                    <p>Get the best components at unbeatable prices</p>
-                    <button class="shop-now" id="explore-products">Explore Products</button>
-                </div>
-            </div>
-            
-            <!-- Products Header -->
-            <div class="products-header">
-                <div>
-                    <h2 id="products-title">All Products</h2>
-                    <div class="products-count" id="products-count">Loading products...</div>
+    <div class="container">
+        <div class="main-container">
+            <!-- Desktop Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <div class="sidebar-header">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <button class="clear-filters" id="clear-filter">Clear</button>
+                    </div>
+                    <ul class="filter-list" id="category-list">
+                        <!-- Categories will be loaded dynamically -->
+                    </ul>
                 </div>
                 
-                <div class="sort-filter">
-                    <select id="sort-by">
-                        <option value="name">Sort by Name</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="newest">Newest First</option>
-                    </select>
+                <div class="sidebar-section">
+                    <div class="sidebar-header">
+                        <h3 class="sidebar-title">Stock Status</h3>
+                    </div>
+                    <ul class="filter-list" id="status-filter">
+                        <li class="filter-item active" data-status="all">
+                            <span>All Products</span>
+                            <span class="filter-count" id="count-all">0</span>
+                        </li>
+                        <li class="filter-item" data-status="In Stock">
+                            <span>In Stock</span>
+                            <span class="filter-count" id="count-instock">0</span>
+                        </li>
+                        <li class="filter-item" data-status="Low Stock">
+                            <span>Low Stock</span>
+                            <span class="filter-count" id="count-lowstock">0</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <!-- Products Grid -->
-            <div class="products-grid" id="products-grid">
-                <div class="loading">
-                    <i class="fas fa-spinner"></i> Loading products...
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Hero Banner -->
+                <div class="hero-banner">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Build Your Dream PC</h1>
+                        <p class="hero-description">Get the best components at unbeatable prices. Premium quality with expert support.</p>
+                        <button class="hero-button" id="explore-products">
+                            <i class="fas fa-rocket"></i>
+                            Explore Products
+                        </button>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Pagination -->
-            <div class="pagination" id="pagination">
-                <!-- Pagination buttons will be loaded dynamically -->
+                
+                <!-- Products Header -->
+                <div class="products-header">
+                    <div class="products-info">
+                        <h2 class="text-title" id="products-title">All Products</h2>
+                        <span class="products-count" id="products-count">Loading products...</span>
+                    </div>
+                    
+                    <div class="sort-control">
+                        <select class="sort-select" id="sort-by">
+                            <option value="name">Sort by Name</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                        <i class="fas fa-chevron-down sort-icon"></i>
+                    </div>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Loading Skeleton -->
+                    <div class="product-card skeleton skeleton-card"></div>
+                    <div class="product-card skeleton skeleton-card"></div>
+                    <div class="product-card skeleton skeleton-card"></div>
+                    <div class="product-card skeleton skeleton-card"></div>
+                    <div class="product-card skeleton skeleton-card"></div>
+                    <div class="product-card skeleton skeleton-card"></div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination" id="pagination">
+                    <!-- Pagination buttons will be loaded dynamically -->
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer - SIMPLIFIED -->
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-container">
-                <div class="footer-logo">
-                    <i class="fas fa-desktop"></i>
-                    GMA Computers
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-desktop footer-logo-icon"></i>
+                        GMA Computers
+                    </a>
+                    <p class="footer-tagline">Your trusted destination for premium computer components and expert tech solutions.</p>
                 </div>
                 
                 <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p>Email: gmacomputers24@gmail.com</p>
-                    <p>Phone: +91 9876543210,+91 8989930325,+91 9301876096</p>
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <a href="mailto:gmacomputers24@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            gmacomputers24@gmail.com
+                        </a>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <div>+91 9876543210</div>
+                                <div>+91 8989930325</div>
+                                <div>+91 9301876096</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="#" class="footer-link">About Us</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Return Policy</a>
+                    <a href="#" class="footer-link">Shipping Info</a>
                 </div>
             </div>
             
-            <div class="copyright">
-                © 2026 GMA Computers. All rights reserved by Samarth Dwivedi.
+            <div class="footer-bottom">
+                <p>© 2026 GMA Computers. All rights reserved by Samarth Dwivedi.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modals -->
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <div class="mobile-nav-items">
+            <a href="#" class="mobile-nav-item active">
+                <i class="fas fa-home mobile-nav-icon"></i>
+                <span class="mobile-nav-text">Home</span>
+            </a>
+            <a href="#" class="mobile-nav-item" id="mobile-cart-btn">
+                <i class="fas fa-shopping-cart mobile-nav-icon"></i>
+                <span class="mobile-nav-text">Cart</span>
+                <span class="cart-badge" id="mobile-cart-count">0</span>
+            </a>
+            <a href="#" class="mobile-nav-item" id="mobile-user-btn">
+                <i class="fas fa-user mobile-nav-icon"></i>
+                <span class="mobile-nav-text" id="mobile-user-text">Account</span>
+            </a>
+            <a href="#" class="mobile-nav-item" id="mobile-admin-btn">
+                <i class="fas fa-cog mobile-nav-icon"></i>
+                <span class="mobile-nav-text">Admin</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Category FAB -->
+    <button class="mobile-category-fab" id="mobile-category-fab">
+        <i class="fas fa-filter"></i>
+    </button>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="mobile-sidebar-overlay" id="mobile-sidebar-overlay"></div>
+    
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar" id="mobile-sidebar">
+        <div class="mobile-sidebar-header">
+            <button class="mobile-sidebar-close" id="mobile-sidebar-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="mobile-sidebar-title">Filters</h2>
+        </div>
+        
+        <div class="sidebar-section">
+            <div class="sidebar-header">
+                <h3 class="sidebar-title">Categories</h3>
+                <button class="clear-filters" id="mobile-clear-filter">Clear</button>
+            </div>
+            <ul class="filter-list" id="mobile-category-list">
+                <!-- Mobile categories will be loaded dynamically -->
+            </ul>
+        </div>
+        
+        <div class="sidebar-section">
+            <div class="sidebar-header">
+                <h3 class="sidebar-title">Stock Status</h3>
+            </div>
+            <ul class="filter-list" id="mobile-status-filter">
+                <li class="filter-item active" data-status="all">
+                    <span>All Products</span>
+                    <span class="filter-count" id="mobile-count-all">0</span>
+                </li>
+                <li class="filter-item" data-status="In Stock">
+                    <span>In Stock</span>
+                    <span class="filter-count" id="mobile-count-instock">0</span>
+                </li>
+                <li class="filter-item" data-status="Low Stock">
+                    <span>Low Stock</span>
+                    <span class="filter-count" id="mobile-count-lowstock">0</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modals (Your original modals with updated styling) -->
     
     <!-- Login/Signup Modal -->
     <div class="modal" id="auth-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="auth-modal-title">Login to GMA Computers</h3>
-                <button class="close-modal" id="close-auth-modal">&times;</button>
+                <h3 class="modal-title" id="auth-modal-title">Login to GMA Computers</h3>
+                <button class="modal-close" id="close-auth-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="auth-tabs">
-                    <div class="auth-tab active" id="login-tab">Login</div>
-                    <div class="auth-tab" id="signup-tab">Sign Up</div>
+                <div class="auth-tabs" style="display: flex; margin-bottom: 25px; border-bottom: 1px solid var(--gray-200);">
+                    <div class="auth-tab active" id="login-tab" style="flex: 1; text-align: center; padding: 12px; cursor: pointer; font-weight: 500; color: var(--primary-500); border-bottom: 2px solid var(--primary-500);">Login</div>
+                    <div class="auth-tab" id="signup-tab" style="flex: 1; text-align: center; padding: 12px; cursor: pointer; font-weight: 500; color: var(--gray-600);">Sign Up</div>
                 </div>
                 
                 <form id="login-form" class="auth-form active">
-                    <div class="form-group">
-                        <label for="login-phone">Phone Number</label>
-                        <input type="tel" id="login-phone" placeholder="Enter your phone number" required>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="login-phone" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--gray-900);">Phone Number</label>
+                        <input type="tel" id="login-phone" placeholder="Enter your phone number" required style="width: 100%; padding: 12px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); font-size: 14px;">
                     </div>
                     
-                    <div class="form-group">
-                        <label for="login-password">Password</label>
-                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="login-password" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--gray-900);">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required style="width: 100%; padding: 12px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); font-size: 14px;">
                     </div>
                     
-                    <div class="form-actions">
-                        <button type="submit" class="btn-primary">Login</button>
-                        <button type="button" class="btn-secondary" id="close-auth-form">Cancel</button>
+                    <div class="form-actions" style="display: flex; gap: 10px; margin-top: 25px;">
+                        <button type="submit" class="btn-primary" style="flex: 1; padding: 12px; background: var(--primary-500); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">Login</button>
+                        <button type="button" class="btn-secondary" id="close-auth-form" style="flex: 1; padding: 12px; background: var(--gray-100); color: var(--gray-900); border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">Cancel</button>
                     </div>
                 </form>
                 
-                <form id="signup-form" class="auth-form">
-                    <div class="form-group">
-                        <label for="signup-name">Full Name</label>
-                        <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                <form id="signup-form" class="auth-form" style="display: none;">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="signup-name" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--gray-900);">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Enter your full name" required style="width: 100%; padding: 12px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); font-size: 14px;">
                     </div>
                     
-                    <div class="form-group">
-                        <label for="signup-email">Email Address</label>
-                        <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="signup-email" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--gray-900);">Email Address</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email" required style="width: 100%; padding: 12px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); font-size: 14px;">
                     </div>
                     
-                    <div class="form-group">
-                        <label for="signup-phone">Phone Number</label>
-                        <input type="tel" id="signup-phone" placeholder="Enter your phone number" required>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="signup-phone" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--gray-900);">Phone Number</label>
+                        <input type="tel" id="signup-phone" placeholder="Enter your phone number" required style="width: 100%; padding: 12px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); font-size: 14px;">
                     </div>
                     
-                    <div class="form-group">
-                        <label for="signup-address">Address</label>
-                        <textarea id="signup-address" rows="3" placeholder="Enter your address" required></textarea>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="signup-address" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--gray-900);">Address</label>
+                        <textarea id="signup-address" rows="3" placeholder="Enter your address" required style="width: 100%; padding: 12px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); font-size: 14px;"></textarea>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="signup-password">Create Password</label>
-                        <input type="password" id="signup-password" placeholder="Create a password" required>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="signup-password" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--gray-900);">Create Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a password" required style="width: 100%; padding: 12px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); font-size: 14px;">
                     </div>
                     
-                    <div class="form-actions">
-                        <button type="submit" class="btn-primary">Create Account</button>
-                        <button type="button" class="btn-secondary" id="close-signup-form">Cancel</button>
+                    <div class="form-actions" style="display: flex; gap: 10px; margin-top: 25px;">
+                        <button type="submit" class="btn-primary" style="flex: 1; padding: 12px; background: var(--primary-500); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">Create Account</button>
+                        <button type="button" class="btn-secondary" id="close-signup-form" style="flex: 1; padding: 12px; background: var(--gray-100); color: var(--gray-900); border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -1827,8 +1730,8 @@
     <div class="modal" id="product-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="product-modal-title">Product Details</h3>
-                <button class="close-modal" id="close-product-modal">&times;</button>
+                <h3 class="modal-title" id="product-modal-title">Product Details</h3>
+                <button class="modal-close" id="close-product-modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div id="product-details-content">
@@ -1842,8 +1745,8 @@
     <div class="modal" id="cart-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Your Cart</h3>
-                <button class="close-modal" id="close-cart-modal">&times;</button>
+                <h3 class="modal-title">Your Cart</h3>
+                <button class="modal-close" id="close-cart-modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div id="cart-content">
@@ -1857,8 +1760,8 @@
     <div class="modal" id="checkout-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Checkout</h3>
-                <button class="close-modal" id="close-checkout-modal">&times;</button>
+                <h3 class="modal-title">Checkout</h3>
+                <button class="modal-close" id="close-checkout-modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div id="checkout-content">
@@ -1872,18 +1775,18 @@
     <div class="modal" id="order-success-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Order Confirmation</h3>
-                <button class="close-modal" id="close-order-success-modal">&times;</button>
+                <h3 class="modal-title">Order Confirmation</h3>
+                <button class="modal-close" id="close-order-success-modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="order-success">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Order Placed Successfully!</h3>
+                    <i class="fas fa-check-circle" style="font-size: 60px; color: var(--success); margin-bottom: 20px;"></i>
+                    <h3 style="color: var(--success); margin-bottom: 10px;">Order Placed Successfully!</h3>
                     <p>Thank you for your purchase. Your order has been confirmed.</p>
                     <p>Order ID: <strong id="order-id">ORD-2025-001</strong></p>
                     <p>You will receive your order within 5-7 business days.</p>
                     <div class="form-actions" style="margin-top: 30px;">
-                        <button class="btn-primary" id="continue-shopping">Continue Shopping</button>
+                        <button class="btn-primary" id="continue-shopping" style="flex: 1; padding: 12px; background: var(--primary-500); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">Continue Shopping</button>
                     </div>
                 </div>
             </div>
@@ -1894,51 +1797,51 @@
     <div class="modal" id="admin-modal">
         <div class="modal-content" style="max-width: 1000px;">
             <div class="modal-header">
-                <h3>Admin Panel</h3>
-                <button class="close-modal" id="close-admin-modal">&times;</button>
+                <h3 class="modal-title">Admin Panel</h3>
+                <button class="modal-close" id="close-admin-modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div id="admin-login" class="admin-content active">
                     <div class="login-form">
-                        <h2>Admin Login</h2>
-                        <div class="form-group">
-                            <label for="admin-password">Password</label>
-                            <input type="password" id="admin-password" placeholder="Enter admin password">
+                        <h2 style="margin-bottom: 20px;">Admin Login</h2>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="admin-password" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--gray-900);">Password</label>
+                            <input type="password" id="admin-password" placeholder="Enter admin password" style="width: 100%; padding: 12px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); font-size: 14px;">
                         </div>
-                        <div class="form-actions">
-                            <button class="btn-primary" id="admin-login-btn">Login</button>
-                            <button class="btn-secondary" id="cancel-admin-login">Cancel</button>
+                        <div class="form-actions" style="display: flex; gap: 10px; margin-top: 25px;">
+                            <button class="btn-primary" id="admin-login-btn" style="flex: 1; padding: 12px; background: var(--primary-500); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">Login</button>
+                            <button class="btn-secondary" id="cancel-admin-login" style="flex: 1; padding: 12px; background: var(--gray-100); color: var(--gray-900); border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">Cancel</button>
                         </div>
                     </div>
                 </div>
                 
-                <div id="admin-panel" class="admin-content">
+                <div id="admin-panel" class="admin-content" style="display: none;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                        <div class="admin-tabs">
-                            <div class="admin-tab active" data-tab="orders">Orders</div>
-                            <div class="admin-tab" data-tab="products">Product Inventory</div>
-                            <div class="admin-tab" data-tab="users">Registered Users</div>
+                        <div class="admin-tabs" style="display: flex; border-bottom: 1px solid var(--gray-200); margin-bottom: 20px; flex-wrap: wrap;">
+                            <div class="admin-tab active" data-tab="orders" style="padding: 12px 20px; cursor: pointer; font-weight: 500; white-space: nowrap; color: var(--primary-500); border-bottom: 2px solid var(--primary-500);">Orders</div>
+                            <div class="admin-tab" data-tab="products" style="padding: 12px 20px; cursor: pointer; font-weight: 500; white-space: nowrap; color: var(--gray-600);">Product Inventory</div>
+                            <div class="admin-tab" data-tab="users" style="padding: 12px 20px; cursor: pointer; font-weight: 500; white-space: nowrap; color: var(--gray-600);">Registered Users</div>
                         </div>
                         <div>
-                            <button class="btn-primary" id="refresh-admin-data" style="padding: 8px 16px; font-size: 14px;">
+                            <button class="btn-primary" id="refresh-admin-data" style="padding: 8px 16px; font-size: 14px; background: var(--primary-500); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">
                                 <i class="fas fa-sync-alt"></i> Refresh
                             </button>
                         </div>
                     </div>
                     
                     <div id="orders-tab" class="admin-content active">
-                        <h4>Recent Orders</h4>
-                        <div class="orders-table-container">
-                            <table class="orders-table">
+                        <h4 style="margin-bottom: 15px;">Recent Orders</h4>
+                        <div class="orders-table-container" style="max-height: 500px; overflow-y: auto; border: 1px solid var(--gray-200); border-radius: var(--radius-md);">
+                            <table class="orders-table" style="width: 100%; border-collapse: collapse; font-size: 14px;">
                                 <thead>
                                     <tr>
-                                        <th>Order ID</th>
-                                        <th>Customer</th>
-                                        <th>Address</th>
-                                        <th>Date</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
+                                        <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200); background-color: var(--gray-50); font-weight: 600; position: sticky; top: 0; z-index: 1;">Order ID</th>
+                                        <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200); background-color: var(--gray-50); font-weight: 600; position: sticky; top: 0; z-index: 1;">Customer</th>
+                                        <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200); background-color: var(--gray-50); font-weight: 600; position: sticky; top: 0; z-index: 1;">Address</th>
+                                        <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200); background-color: var(--gray-50); font-weight: 600; position: sticky; top: 0; z-index: 1;">Date</th>
+                                        <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200); background-color: var(--gray-50); font-weight: 600; position: sticky; top: 0; z-index: 1;">Amount</th>
+                                        <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200); background-color: var(--gray-50); font-weight: 600; position: sticky; top: 0; z-index: 1;">Status</th>
+                                        <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200); background-color: var(--gray-50); font-weight: 600; position: sticky; top: 0; z-index: 1;">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody id="orders-table-body">
@@ -1948,15 +1851,15 @@
                         </div>
                     </div>
                     
-                    <div id="products-tab" class="admin-content">
-                        <h4>Product Inventory (All 89 Products)</h4>
+                    <div id="products-tab" class="admin-content" style="display: none;">
+                        <h4 style="margin-bottom: 15px;">Product Inventory (All Products)</h4>
                         <div id="admin-products">
                             <!-- Products will be loaded here -->
                         </div>
                     </div>
                     
-                    <div id="users-tab" class="admin-content">
-                        <h4>Registered Users</h4>
+                    <div id="users-tab" class="admin-content" style="display: none;">
+                        <h4 style="margin-bottom: 15px;">Registered Users</h4>
                         <div id="admin-users">
                             <!-- Users will be loaded here -->
                         </div>
@@ -1968,8 +1871,16 @@
 
     <!-- Notification -->
     <div class="notification" id="notification">
-        <i class="fas fa-check-circle"></i>
-        <span id="notification-text">Product added to cart!</span>
+        <div class="notification-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="notification-content">
+            <div class="notification-title">Success</div>
+            <div class="notification-message" id="notification-text">Product added to cart!</div>
+        </div>
+        <button class="notification-close" id="notification-close">
+            <i class="fas fa-times"></i>
+        </button>
     </div>
 
     <!-- Firebase SDK -->
@@ -2005,7 +1916,7 @@
         let currentPage = 1;
         const productsPerPage = 12;
         
-        // Product data from the stock report - ALL 89 PRODUCTS with image URLs
+        // Product data from the stock report - ALL 123 PRODUCTS with image URLs
         const productData = [
             // Page 1
             { id: 1, name: "Ryzen 5 5500", price: 7212, quantity: 30, category: "cpu", status: "In Stock", description: "AMD Ryzen 5 5500 Desktop Processor with 6 cores and 12 threads. Base clock 3.6GHz, Max boost clock up to 4.2GHz. 19MB cache, 65W TDP.", imageUrl: "https://m.media-amazon.com/images/I/81-ohhrrgwL._AC_UF350,350_QL80_.jpg" },
@@ -2130,11 +2041,12 @@
             { id: 115, name: "Samsung DDR3 ram 4gb", price: 420, quantity: 30, category: "ram", status: "In Stock", description: "Apacer/Samasung ddr3 ram(1 year)", imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS-nx2tCDpZHjUWmjShtRCL8syHSKOqGi10IvwXWUD96g56NHG2OieRw-5pPQSxg-mibkOye4Two3cX4viPu1heZtDxfR0L3bF1Y_kpXvm7I7iq-4IvYiaW8Q" },
             { id: 116, name: "Inno3d GeForce RTX 3060 Twin X2 Gaming Graphics Card", price: 25999, quantity: 20, category: "gpu", status: "In Stock", description: "RTX 3060 value pick for 1080p/1440p gaming(3 years)", imageUrl: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSwymYqnP24Gtowl1xpA0cxRf48tBLYij3CaccBDN1Mt9gnwoUkV7HhqSzJ30yxQ44TT6U2oUtgDx9pNNp9xPHdzM-ss3FeAson3Pi7Dr9WDzZWEZcrwKPK_Q" },
             { id: 117, name: "Gigabyte GeForce RTX 5060 WINDFORCE OC 8G Graphics", price: 35999, quantity: 20, category: "gpu", status: "In Stock", description: "RTX 3050 value pick for 1080p/1440p gaming(3 years)", imageUrl: "https://m.media-amazon.com/images/I/71sSOjO5MJL._SX679_.jpg" },
-            { id: 119, name: "GIGABYTE B650 Eagle AX AMD AM5 LGA 1718 ATX Motherboard", price: 18999, quantity: 20, category: "motherboard", status: "In Stock", description: "Am5 Sicket gaming Motherboard with pci 4.0 DDR5 with Wifi 6E(3 year)", imageUrl: "https://m.media-amazon.com/images/I/61g+rl0poXL._SY450_.jpg" },
-            { id: 120, name: "Geonix CPU Cooling Fan", price: 200, quantity: 20, category: "cooler", status: "In Stock", description: "Cpu cooler for intel h61,h81,etc socket (warrenty : 1year).", imageUrl: "https://m.media-amazon.com/images/I/71V4HOAmqtL._SX679_.jpg" },
-            { id: 121, name: "GIGABYTE GP-P550B 550W ATX Power Supply | Non-Modular | 80 Plus Bronze | Smart Fan", price: 4500, quantity: 20, category: "psu", status: "In Stock", description: "GP-P550B - Basic 550W Bronze PSU with Strong Protection Circuitry and Stable Output & GP-P550B - Bronze-rated unit that ensures consistent performance on a budget", imageUrl: "https://m.media-amazon.com/images/I/61ssoNlucSL._SX679_.jpg" },
-            { id: 122, name: "Ant Esports VS500L NonModular High Efficiency Gaming Power Supply/PSU with 1 x PCIe and 120mm Silent Fan", price: 2300, quantity: 20, category: "psu", status: "In Stock", description: "Comes with all the cables for a modern high end system including a dual 4 pin CPU connector. Constructed with passions and composed of high-grade quality components this unit ensures a stable power supply even under high loads.", imageUrl: "https://m.media-amazon.com/images/I/61jwEyAezuL._SX679_.jpg" },
-            { id: 123, name: "CONSISTENT 1000GB NVME", price: 9200, quantity: 30, category: "storage", status: "In Stock", description: "Consistent 1 TB NVMe PCIe 2280, 3D NAND with SLC Cache, Up to Read Speed 2400MB/s,& Write Speed 3400MB/s 5 Years Warranty. Vendor: Consistent InfoSystems Pvt. Ltd.", imageUrl: "https://consistent.in/wp-content/uploads/2025/02/1-TB-NVME.jpg" }       
+            { id: 118, name: "GIGABYTE B650 Eagle AX AMD AM5 LGA 1718 ATX Motherboard", price: 18999, quantity: 20, category: "motherboard", status: "In Stock", description: "Am5 Sicket gaming Motherboard with pci 4.0 DDR5 with Wifi 6E(3 year)", imageUrl: "https://m.media-amazon.com/images/I/61g+rl0poXL._SY450_.jpg" },
+            { id: 119, name: "Geonix CPU Cooling Fan", price: 200, quantity: 20, category: "cooler", status: "In Stock", description: "Cpu cooler for intel h61,h81,etc socket (warrenty : 1year).", imageUrl: "https://m.media-amazon.com/images/I/71V4HOAmqtL._SX679_.jpg" },
+            { id: 120, name: "GIGABYTE GP-P550B 550W ATX Power Supply | Non-Modular | 80 Plus Bronze | Smart Fan", price: 4500, quantity: 20, category: "psu", status: "In Stock", description: "GP-P550B - Basic 550W Bronze PSU with Strong Protection Circuitry and Stable Output & GP-P550B - Bronze-rated unit that ensures consistent performance on a budget", imageUrl: "https://m.media-amazon.com/images/I/61ssoNlucSL._SX679_.jpg" },
+            { id: 121, name: "Ant Esports VS500L NonModular High Efficiency Gaming Power Supply/PSU with 1 x PCIe and 120mm Silent Fan", price: 2300, quantity: 20, category: "psu", status: "In Stock", description: "Comes with all the cables for a modern high end system including a dual 4 pin CPU connector. Constructed with passions and composed of high-grade quality components this unit ensures a stable power supply even under high loads.", imageUrl: "https://m.media-amazon.com/images/I/61jwEyAezuL._SX679_.jpg" },
+            { id: 122, name: "CONSISTENT 1000GB NVME", price: 9200, quantity: 30, category: "storage", status: "In Stock", description: "Consistent 1 TB NVMe PCIe 2280, 3D NAND with SLC Cache, Up to Read Speed 2400MB/s,& Write Speed 3400MB/s 5 Years Warranty. Vendor: Consistent InfoSystems Pvt. Ltd.", imageUrl: "https://consistent.in/wp-content/uploads/2025/02/1-TB-NVME.jpg" },
+            { id: 123, name: "Intel Core i7 13th Gen Processor", price: 35000, quantity: 15, category: "cpu", status: "In Stock", description: "Intel 13th Gen i7 processor with latest architecture for high-performance computing and gaming.", imageUrl: "https://m.media-amazon.com/images/I/51D3DrDmwkL.jpg" }
         ];
         
         // Initialize products
@@ -2155,6 +2067,52 @@
         
         // DOM Elements
         const elements = {
+            // Header elements
+            userMenuBtn: document.getElementById('user-menu-btn'),
+            userMenu: document.getElementById('user-menu'),
+            userText: document.getElementById('user-text'),
+            mobileUserText: document.getElementById('mobile-user-text'),
+            loginLink: document.getElementById('login-link'),
+            logoutLink: document.getElementById('logout-link'),
+            myOrdersLink: document.getElementById('my-orders-link'),
+            cartBtn: document.getElementById('cart-btn'),
+            mobileCartBtn: document.getElementById('mobile-cart-btn'),
+            adminBtn: document.getElementById('admin-btn'),
+            mobileAdminBtn: document.getElementById('mobile-admin-btn'),
+            mobileUserBtn: document.getElementById('mobile-user-btn'),
+            cartCount: document.getElementById('cart-count'),
+            mobileCartCount: document.getElementById('mobile-cart-count'),
+            
+            // Search
+            searchInput: document.getElementById('search-input'),
+            searchBtn: document.getElementById('search-btn'),
+            
+            // Sidebar filters
+            categoryList: document.getElementById('category-list'),
+            statusFilter: document.getElementById('status-filter'),
+            clearFilter: document.getElementById('clear-filter'),
+            
+            // Mobile sidebar
+            mobileCategoryFab: document.getElementById('mobile-category-fab'),
+            mobileSidebar: document.getElementById('mobile-sidebar'),
+            mobileSidebarOverlay: document.getElementById('mobile-sidebar-overlay'),
+            mobileSidebarClose: document.getElementById('mobile-sidebar-close'),
+            mobileCategoryList: document.getElementById('mobile-category-list'),
+            mobileStatusFilter: document.getElementById('mobile-status-filter'),
+            mobileClearFilter: document.getElementById('mobile-clear-filter'),
+            
+            // Products
+            productsGrid: document.getElementById('products-grid'),
+            productsTitle: document.getElementById('products-title'),
+            productsCount: document.getElementById('products-count'),
+            sortBy: document.getElementById('sort-by'),
+            
+            // Pagination
+            pagination: document.getElementById('pagination'),
+            
+            // Explore products button
+            exploreProducts: document.getElementById('explore-products'),
+            
             // Modals
             authModal: document.getElementById('auth-modal'),
             productModal: document.getElementById('product-modal'),
@@ -2163,20 +2121,16 @@
             orderSuccessModal: document.getElementById('order-success-modal'),
             adminModal: document.getElementById('admin-modal'),
             
-            // Buttons
-            userMenuBtn: document.getElementById('user-menu-btn'),
-            userMenu: document.getElementById('user-menu'),
-            cartBtn: document.getElementById('cart-btn'),
-            adminBtn: document.getElementById('admin-btn'),
-            
-            // User section
-            userText: document.getElementById('user-text'),
-            loginLink: document.getElementById('login-link'),
-            logoutLink: document.getElementById('logout-link'),
-            myOrdersLink: document.getElementById('my-orders-link'),
-            
-            // Auth modal
+            // Modal close buttons
             closeAuthModal: document.getElementById('close-auth-modal'),
+            closeProductModal: document.getElementById('close-product-modal'),
+            closeCartModal: document.getElementById('close-cart-modal'),
+            closeCheckoutModal: document.getElementById('close-checkout-modal'),
+            closeOrderSuccessModal: document.getElementById('close-order-success-modal'),
+            closeAdminModal: document.getElementById('close-admin-modal'),
+            
+            // Auth modal elements
+            authModalTitle: document.getElementById('auth-modal-title'),
             loginTab: document.getElementById('login-tab'),
             signupTab: document.getElementById('signup-tab'),
             loginForm: document.getElementById('login-form'),
@@ -2185,26 +2139,20 @@
             closeSignupForm: document.getElementById('close-signup-form'),
             
             // Product modal
-            closeProductModal: document.getElementById('close-product-modal'),
             productModalTitle: document.getElementById('product-modal-title'),
             productDetailsContent: document.getElementById('product-details-content'),
             
             // Cart modal
-            closeCartModal: document.getElementById('close-cart-modal'),
             cartContent: document.getElementById('cart-content'),
-            cartCount: document.getElementById('cart-count'),
             
             // Checkout modal
-            closeCheckoutModal: document.getElementById('close-checkout-modal'),
             checkoutContent: document.getElementById('checkout-content'),
             
             // Order success modal
-            closeOrderSuccessModal: document.getElementById('close-order-success-modal'),
             continueShopping: document.getElementById('continue-shopping'),
             orderId: document.getElementById('order-id'),
             
             // Admin modal
-            closeAdminModal: document.getElementById('close-admin-modal'),
             adminLogin: document.getElementById('admin-login'),
             adminPanel: document.getElementById('admin-panel'),
             adminPassword: document.getElementById('admin-password'),
@@ -2219,36 +2167,10 @@
             adminUsers: document.getElementById('admin-users'),
             refreshAdminData: document.getElementById('refresh-admin-data'),
             
-            // Product grids
-            productsGrid: document.getElementById('products-grid'),
-            
-            // Sidebar
-            sidebar: document.getElementById('sidebar'),
-            sidebarOverlay: document.getElementById('sidebar-overlay'),
-            closeSidebar: document.getElementById('close-sidebar'),
-            mobileSidebarToggle: document.getElementById('mobile-sidebar-toggle'),
-            categoryList: document.getElementById('category-list'),
-            statusFilter: document.getElementById('status-filter'),
-            clearFilter: document.getElementById('clear-filter'),
-            
-            // Search
-            searchInput: document.getElementById('search-input'),
-            searchBtn: document.getElementById('search-btn'),
-            
-            // Products header
-            productsTitle: document.getElementById('products-title'),
-            productsCount: document.getElementById('products-count'),
-            sortBy: document.getElementById('sort-by'),
-            
-            // Pagination
-            pagination: document.getElementById('pagination'),
-            
-            // Explore products button
-            exploreProducts: document.getElementById('explore-products'),
-            
             // Notification
             notification: document.getElementById('notification'),
-            notificationText: document.getElementById('notification-text')
+            notificationText: document.getElementById('notification-text'),
+            notificationClose: document.getElementById('notification-close')
         };
         
         // Initialize the application
@@ -2305,10 +2227,30 @@
                 showCartModal();
             });
             
+            elements.mobileCartBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showCartModal();
+            });
+            
             // Admin button
             elements.adminBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 showAdminModal();
+            });
+            
+            elements.mobileAdminBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showAdminModal();
+            });
+            
+            // User button for mobile
+            elements.mobileUserBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentUser) {
+                    toggleUserMenu();
+                } else {
+                    showAuthModal('login');
+                }
             });
             
             // Close modals
@@ -2377,6 +2319,28 @@
                 filterProductsByCategory(category);
             });
             
+            // Mobile category filtering
+            elements.mobileCategoryList.addEventListener('click', (e) => {
+                const li = e.target.closest('li');
+                if (!li) return;
+                
+                // Remove active class from all category items
+                document.querySelectorAll('#mobile-category-list li').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Add active class to clicked item
+                li.classList.add('active');
+                
+                // Filter products
+                const category = li.getAttribute('data-category');
+                filterProductsByCategory(category);
+                
+                // Close mobile sidebar
+                elements.mobileSidebar.classList.remove('active');
+                elements.mobileSidebarOverlay.classList.remove('active');
+            });
+            
             // Status filtering
             elements.statusFilter.addEventListener('click', (e) => {
                 const li = e.target.closest('li');
@@ -2395,8 +2359,27 @@
                 filterProductsByStatus(status);
             });
             
+            // Mobile status filtering
+            elements.mobileStatusFilter.addEventListener('click', (e) => {
+                const li = e.target.closest('li');
+                if (!li) return;
+                
+                // Remove active class from all status items
+                document.querySelectorAll('#mobile-status-filter li').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Add active class to clicked item
+                li.classList.add('active');
+                
+                // Filter products
+                const status = li.getAttribute('data-status');
+                filterProductsByStatus(status);
+            });
+            
             // Clear filter
             elements.clearFilter.addEventListener('click', clearFilters);
+            elements.mobileClearFilter.addEventListener('click', clearFilters);
             
             // Search functionality
             elements.searchBtn.addEventListener('click', performSearch);
@@ -2412,23 +2395,29 @@
             // Explore products button
             elements.exploreProducts.addEventListener('click', () => {
                 clearFilters();
-                document.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
+                document.querySelector('.content-area').scrollIntoView({ behavior: 'smooth' });
             });
             
-            // Mobile sidebar toggle
-            elements.mobileSidebarToggle.addEventListener('click', () => {
-                elements.sidebar.classList.add('active');
-                elements.sidebarOverlay.classList.add('active');
+            // Mobile category FAB
+            elements.mobileCategoryFab.addEventListener('click', () => {
+                elements.mobileSidebar.classList.add('active');
+                elements.mobileSidebarOverlay.classList.add('active');
             });
             
-            elements.closeSidebar.addEventListener('click', () => {
-                elements.sidebar.classList.remove('active');
-                elements.sidebarOverlay.classList.remove('active');
+            // Mobile sidebar close
+            elements.mobileSidebarClose.addEventListener('click', () => {
+                elements.mobileSidebar.classList.remove('active');
+                elements.mobileSidebarOverlay.classList.remove('active');
             });
             
-            elements.sidebarOverlay.addEventListener('click', () => {
-                elements.sidebar.classList.remove('active');
-                elements.sidebarOverlay.classList.remove('active');
+            elements.mobileSidebarOverlay.addEventListener('click', () => {
+                elements.mobileSidebar.classList.remove('active');
+                elements.mobileSidebarOverlay.classList.remove('active');
+            });
+            
+            // Notification close
+            elements.notificationClose.addEventListener('click', () => {
+                elements.notification.classList.remove('active');
             });
             
             // Close modals when clicking outside
@@ -2470,12 +2459,11 @@
             elements.signupTab.classList.toggle('active', tab === 'signup');
             
             // Update forms
-            elements.loginForm.classList.toggle('active', tab === 'login');
-            elements.signupForm.classList.toggle('active', tab === 'signup');
+            elements.loginForm.style.display = tab === 'login' ? 'block' : 'none';
+            elements.signupForm.style.display = tab === 'signup' ? 'block' : 'none';
             
             // Update modal title
-            const title = document.getElementById('auth-modal-title');
-            title.textContent = tab === 'login' ? 'Login to GMA Computers' : 'Create Account';
+            elements.authModalTitle.textContent = tab === 'login' ? 'Login to GMA Computers' : 'Create Account';
         }
         
         function showProductModal(productId) {
@@ -2491,45 +2479,45 @@
             
             // Create product details HTML
             const productDetails = `
-                <div class="product-details-modal">
-                    <div class="product-details-image">
-                        <img src="${imageUrl}" alt="${product.name}">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div style="background: var(--gray-100); border-radius: var(--radius-md); padding: 30px; display: flex; align-items: center; justify-content: center; min-height: 300px;">
+                        <img src="${imageUrl}" alt="${product.name}" style="max-width: 100%; max-height: 300px; object-fit: contain;">
                     </div>
                     
-                    <div class="product-details-info">
-                        <h2>${product.name}</h2>
+                    <div>
+                        <h2 style="margin-bottom: 15px; color: var(--gray-900);">${product.name}</h2>
                         
-                        <div class="product-price-large">₹${product.price.toLocaleString()}</div>
+                        <div style="font-size: 28px; font-weight: bold; color: var(--gray-900); margin-bottom: 10px;">₹${product.price.toLocaleString()}</div>
                         
                         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <span style="text-decoration: line-through; color: #888; margin-right: 10px;">₹${originalPrice.toLocaleString()}</span>
-                            <span style="background: #388e3c; color: white; padding: 2px 8px; border-radius: 3px; font-size: 14px;">${discount}% off</span>
+                            <span style="text-decoration: line-through; color: var(--gray-500); margin-right: 10px;">₹${originalPrice.toLocaleString()}</span>
+                            <span style="background: var(--success); color: white; padding: 2px 8px; border-radius: var(--radius-sm); font-size: 14px;">${discount}% off</span>
                         </div>
                         
-                        <div class="product-status ${product.status === 'In Stock' ? 'in-stock' : 'low-stock'}" style="margin-bottom: 20px;">
+                        <div class="product-status ${product.status === 'In Stock' ? 'status-in-stock' : 'status-low-stock'}" style="margin-bottom: 20px;">
                             ${product.status} (${product.quantity} units available)
                         </div>
                         
-                        <div class="product-specs">
-                            <div class="spec-row">
-                                <div class="spec-label">Category</div>
-                                <div class="spec-value">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</div>
+                        <div style="margin: 20px 0;">
+                            <div style="display: flex; padding: 8px 0; border-bottom: 1px solid var(--gray-200);">
+                                <div style="font-weight: 500; width: 120px; color: var(--gray-600);">Category</div>
+                                <div style="flex-grow: 1; color: var(--gray-900);">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</div>
                             </div>
-                            <div class="spec-row">
-                                <div class="spec-label">SKU</div>
-                                <div class="spec-value">GMA-${product.id.toString().padStart(4, '0')}</div>
+                            <div style="display: flex; padding: 8px 0; border-bottom: 1px solid var(--gray-200);">
+                                <div style="font-weight: 500; width: 120px; color: var(--gray-600);">SKU</div>
+                                <div style="flex-grow: 1; color: var(--gray-900);">GMA-${product.id.toString().padStart(4, '0')}</div>
                             </div>
                         </div>
                         
-                        <div class="product-description">
+                        <div style="margin: 20px 0; line-height: 1.6; color: var(--gray-700);">
                             ${product.description}
                         </div>
                         
-                        <div class="product-actions" style="margin-top: 30px;">
-                            <button class="btn-buy-now" style="padding: 12px; font-size: 16px;" onclick="buyNow(${product.id})">
+                        <div style="margin-top: 30px; display: flex; gap: 10px;">
+                            <button class="buy-now-button" style="padding: 12px; font-size: 16px;" onclick="buyNow(${product.id})">
                                 Buy Now
                             </button>
-                            <button class="btn-add-cart" style="padding: 12px; font-size: 16px;" onclick="addToCart(${product.id})">
+                            <button class="add-cart-button" style="padding: 12px; font-size: 16px;" onclick="addToCart(${product.id})">
                                 Add to Cart
                             </button>
                         </div>
@@ -2544,11 +2532,11 @@
         function showCartModal() {
             if (cart.length === 0) {
                 elements.cartContent.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-shopping-cart"></i>
-                        <h3>Your cart is empty</h3>
+                    <div style="text-align: center; padding: 40px 20px; color: var(--gray-500);">
+                        <i class="fas fa-shopping-cart" style="font-size: 50px; margin-bottom: 15px; color: var(--gray-300);"></i>
+                        <h3 style="color: var(--gray-700); margin-bottom: 10px;">Your cart is empty</h3>
                         <p>Add some products to your cart to see them here.</p>
-                        <button class="btn-primary" style="margin-top: 20px;" onclick="hideModal(elements.cartModal)">Continue Shopping</button>
+                        <button class="btn-primary" style="margin-top: 20px; padding: 12px 24px; background: var(--primary-500); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;" onclick="hideModal(elements.cartModal)">Continue Shopping</button>
                     </div>
                 `;
             } else {
@@ -2564,20 +2552,20 @@
                     const imageUrl = getProductImage(product.name, product.category, product.id);
                     
                     cartHTML += `
-                        <div class="cart-item">
-                            <div class="cart-item-image">
-                                <img src="${imageUrl}" alt="${product.name}">
+                        <div style="display: flex; padding: 15px 0; border-bottom: 1px solid var(--gray-200);">
+                            <div style="width: 100px; height: 100px; background: var(--gray-100); display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0; border-radius: var(--radius-md); overflow: hidden;">
+                                <img src="${imageUrl}" alt="${product.name}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
                             </div>
-                            <div class="cart-item-details">
-                                <div class="cart-item-title">${product.name}</div>
-                                <div class="cart-item-price">₹${product.price.toLocaleString()} × ${item.quantity} = ₹${itemTotal.toLocaleString()}</div>
-                                <div class="cart-item-actions">
-                                    <div class="cart-quantity">
-                                        <button onclick="updateCartQuantity(${item.productId}, ${item.quantity - 1})">-</button>
-                                        <span>${item.quantity}</span>
-                                        <button onclick="updateCartQuantity(${item.productId}, ${item.quantity + 1})">+</button>
+                            <div style="flex-grow: 1; min-width: 0;">
+                                <div style="font-weight: 500; margin-bottom: 5px; font-size: 14px;">${product.name}</div>
+                                <div style="font-weight: bold; color: var(--gray-900); margin-bottom: 10px;">₹${product.price.toLocaleString()} × ${item.quantity} = ₹${itemTotal.toLocaleString()}</div>
+                                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                    <div style="display: flex; align-items: center; border: 1px solid var(--gray-300); border-radius: var(--radius-md); overflow: hidden;">
+                                        <button onclick="updateCartQuantity(${item.productId}, ${item.quantity - 1})" style="width: 30px; height: 30px; background: var(--gray-100); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">-</button>
+                                        <span style="width: 40px; text-align: center;">${item.quantity}</span>
+                                        <button onclick="updateCartQuantity(${item.productId}, ${item.quantity + 1})" style="width: 30px; height: 30px; background: var(--gray-100); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">+</button>
                                     </div>
-                                    <button class="remove-item" onclick="removeFromCart(${item.productId})">Remove</button>
+                                    <button onclick="removeFromCart(${item.productId})" style="background: none; border: none; color: var(--danger); cursor: pointer; font-size: 14px; padding: 5px 10px; border-radius: var(--radius-sm);">Remove</button>
                                 </div>
                             </div>
                         </div>
@@ -2588,20 +2576,20 @@
                 const finalTotal = total + shipping;
                 
                 cartHTML += `
-                    <div class="cart-summary">
-                        <div class="summary-row">
+                    <div style="background: var(--gray-50); padding: 20px; border-radius: var(--radius-md); margin-top: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <span>Subtotal</span>
                             <span>₹${total.toLocaleString()}</span>
                         </div>
-                        <div class="summary-row">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <span>Shipping</span>
                             <span>₹${shipping.toLocaleString()}</span>
                         </div>
-                        <div class="summary-row summary-total">
+                        <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px; border-top: 1px solid var(--gray-300); padding-top: 10px; margin-top: 10px;">
                             <span>Total</span>
                             <span>₹${finalTotal.toLocaleString()}</span>
                         </div>
-                        <button class="checkout-btn" onclick="showCheckoutModal()">Proceed to Checkout</button>
+                        <button class="checkout-btn" onclick="showCheckoutModal()" style="width: 100%; background: var(--accent-500); color: white; border: none; padding: 15px; border-radius: var(--radius-md); font-weight: 600; font-size: 16px; cursor: pointer; margin-top: 20px;">Proceed to Checkout</button>
                     </div>
                 `;
                 
@@ -2637,7 +2625,7 @@
             const checkoutHTML = `
                 <div class="checkout-content">
                     <h4 style="margin-bottom: 15px;">Delivery Address</h4>
-                    <div style="background: #f9f9f9; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+                    <div style="background: var(--gray-50); padding: 15px; border-radius: var(--radius-md); margin-bottom: 20px;">
                         <p><strong>${currentUser.name}</strong></p>
                         <p>${currentUser.address}</p>
                         <p>Phone: ${currentUser.phone}</p>
@@ -2654,7 +2642,7 @@
                             </div>`;
                         }).join('')}
                         
-                        <hr style="margin: 15px 0; border: none; border-top: 1px solid #eee;">
+                        <hr style="margin: 15px 0; border: none; border-top: 1px solid var(--gray-200);">
                         
                         <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                             <span>Subtotal</span>
@@ -2672,30 +2660,30 @@
                     
                     <h4 style="margin-bottom: 15px;">Payment Method</h4>
                     <div class="payment-options">
-                        <div class="payment-option selected" onclick="selectPayment('cod')">
-                            <input type="radio" name="payment" id="cod" checked>
-                            <div class="payment-icon">
+                        <div class="payment-option selected" onclick="selectPayment('cod')" style="display: flex; align-items: center; padding: 15px; border: 1px solid var(--primary-500); border-radius: var(--radius-md); margin-bottom: 10px; cursor: pointer; background-color: var(--primary-50);">
+                            <input type="radio" name="payment" id="cod" checked style="margin-right: 10px;">
+                            <div class="payment-icon" style="margin-right: 10px; font-size: 20px; color: var(--primary-500);">
                                 <i class="fas fa-money-bill-wave"></i>
                             </div>
-                            <div class="payment-details">
-                                <h4>Cash on Delivery</h4>
-                                <p>Pay when you receive your order</p>
+                            <div class="payment-details" style="flex-grow: 1;">
+                                <h4 style="margin-bottom: 5px;">Cash on Delivery</h4>
+                                <p style="color: var(--gray-600); font-size: 14px;">Pay when you receive your order</p>
                             </div>
                         </div>
                         
-                        <div class="payment-option" onclick="selectPayment('online')">
-                            <input type="radio" name="payment" id="online">
-                            <div class="payment-icon">
+                        <div class="payment-option" onclick="selectPayment('online')" style="display: flex; align-items: center; padding: 15px; border: 1px solid var(--gray-300); border-radius: var(--radius-md); margin-bottom: 10px; cursor: pointer;">
+                            <input type="radio" name="payment" id="online" style="margin-right: 10px;">
+                            <div class="payment-icon" style="margin-right: 10px; font-size: 20px; color: var(--primary-500);">
                                 <i class="fas fa-credit-card"></i>
                             </div>
-                            <div class="payment-details">
-                                <h4>Pay Now <span class="coming-soon">Coming Soon</span></h4>
-                                <p>Pay online using card, UPI, or wallet</p>
+                            <div class="payment-details" style="flex-grow: 1;">
+                                <h4 style="margin-bottom: 5px;">Pay Now <span class="coming-soon" style="display: inline-block; background-color: var(--warning); color: white; padding: 3px 8px; border-radius: var(--radius-sm); font-size: 12px; margin-left: 10px;">Coming Soon</span></h4>
+                                <p style="color: var(--gray-600); font-size: 14px;">Pay online using card, UPI, or wallet</p>
                             </div>
                         </div>
                     </div>
                     
-                    <button class="checkout-btn" onclick="placeOrder()" style="margin-top: 30px;">Place Order</button>
+                    <button class="checkout-btn" onclick="placeOrder()" style="margin-top: 30px; width: 100%; background: var(--accent-500); color: white; border: none; padding: 15px; border-radius: var(--radius-md); font-weight: 600; font-size: 16px; cursor: pointer;">Place Order</button>
                 </div>
             `;
             
@@ -2711,8 +2699,8 @@
         
         function showAdminModal() {
             // Reset to login screen
-            elements.adminLogin.classList.add('active');
-            elements.adminPanel.classList.remove('active');
+            elements.adminLogin.style.display = 'block';
+            elements.adminPanel.style.display = 'none';
             elements.adminPassword.value = '';
             showModal(elements.adminModal);
         }
@@ -2728,16 +2716,25 @@
                 categoryCounts[product.category] = (categoryCounts[product.category] || 0) + 1;
             });
             
-            // Create category list HTML
-            let categoryHTML = '<li data-category="all" class="active">All Products <span class="category-count" id="count-all">' + products.length + '</span></li>';
+            // Create category list HTML for desktop
+            let categoryHTML = '<li class="filter-item active" data-category="all">' +
+                '<span>All Products</span>' +
+                '<span class="filter-count" id="count-all">' + products.length + '</span>' +
+                '</li>';
             
             categories.forEach(category => {
                 const count = categoryCounts[category] || 0;
                 const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
-                categoryHTML += `<li data-category="${category}">${categoryName} <span class="category-count" id="count-${category}">${count}</span></li>`;
+                categoryHTML += `<li class="filter-item" data-category="${category}">
+                    <span>${categoryName}</span>
+                    <span class="filter-count" id="count-${category}">${count}</span>
+                </li>`;
             });
             
             elements.categoryList.innerHTML = categoryHTML;
+            
+            // Create category list HTML for mobile
+            elements.mobileCategoryList.innerHTML = categoryHTML;
             
             // Update status counts
             const inStockCount = products.filter(p => p.status === 'In Stock').length;
@@ -2745,16 +2742,33 @@
             
             document.getElementById('count-instock').textContent = inStockCount;
             document.getElementById('count-lowstock').textContent = lowStockCount;
+            
+            // Update mobile counts
+            document.getElementById('mobile-count-all').textContent = products.length;
+            document.getElementById('mobile-count-instock').textContent = inStockCount;
+            document.getElementById('mobile-count-lowstock').textContent = lowStockCount;
+            
+            // Update category counts for mobile
+            categories.forEach(category => {
+                const count = categoryCounts[category] || 0;
+                const mobileCountElement = document.getElementById(`mobile-count-${category}`);
+                if (mobileCountElement) {
+                    mobileCountElement.textContent = count;
+                }
+            });
         }
         
         function renderProducts() {
+            // Remove skeleton loading
+            elements.productsGrid.innerHTML = '';
+            
             if (filteredProducts.length === 0) {
                 elements.productsGrid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1 / -1;">
-                        <i class="fas fa-search"></i>
-                        <h3>No products found</h3>
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; color: var(--gray-500);">
+                        <i class="fas fa-search" style="font-size: 50px; margin-bottom: 15px; color: var(--gray-300);"></i>
+                        <h3 style="color: var(--gray-700); margin-bottom: 10px;">No products found</h3>
                         <p>Try adjusting your filters or search terms</p>
-                        <button class="btn-primary" style="margin-top: 20px;" onclick="clearFilters()">Clear All Filters</button>
+                        <button class="btn-primary" style="margin-top: 20px; padding: 12px 24px; background: var(--primary-500); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;" onclick="clearFilters()">Clear All Filters</button>
                     </div>
                 `;
                 elements.productsCount.textContent = `Showing 0 of 0 products`;
@@ -2782,29 +2796,29 @@
                 
                 productsHTML += `
                     <div class="product-card" onclick="showProductModal(${product.id})">
-                        <div class="product-image">
-                            <img src="${imageUrl}" alt="${product.name}" loading="lazy">
+                        <div class="product-image-container">
+                            <img src="${imageUrl}" alt="${product.name}" class="product-image" loading="lazy">
                             ${discount > 20 ? `<div class="product-badge">${discount}% OFF</div>` : ''}
                         </div>
-                        <div class="product-details">
+                        <div class="product-content">
                             <div class="product-title">${product.name}</div>
-                            <div class="product-price">₹${product.price.toLocaleString()}</div>
-                            <div>
-                                <span class="product-original-price">₹${originalPrice.toLocaleString()}</span>
-                                <span class="product-discount">${discount}% off</span>
+                            <div class="product-price">
+                                <span class="current-price">₹${product.price.toLocaleString()}</span>
+                                <span class="original-price">₹${originalPrice.toLocaleString()}</span>
+                                <span class="discount">${discount}% off</span>
                             </div>
                             <div class="product-meta">
                                 <span class="product-category">${product.category}</span>
-                                ${cartQuantity > 0 ? `<span style="color: var(--primary);">In Cart: ${cartQuantity}</span>` : ''}
+                                ${cartQuantity > 0 ? `<span class="cart-indicator">In Cart: ${cartQuantity}</span>` : ''}
                             </div>
-                            <div class="product-status ${product.status === 'In Stock' ? 'in-stock' : 'low-stock'}">
+                            <div class="product-status ${product.status === 'In Stock' ? 'status-in-stock' : 'status-low-stock'}">
                                 ${product.status}
                             </div>
                             <div class="product-actions">
-                                <button class="btn-buy-now" onclick="event.stopPropagation(); buyNow(${product.id})" ${product.quantity === 0 ? 'disabled' : ''}>
+                                <button class="action-button buy-now-button" onclick="event.stopPropagation(); buyNow(${product.id})" ${product.quantity === 0 ? 'disabled' : ''}>
                                     ${product.quantity === 0 ? 'Out of Stock' : 'Buy Now'}
                                 </button>
-                                <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(${product.id})" ${product.quantity === 0 ? 'disabled' : ''}>
+                                <button class="action-button add-cart-button" onclick="event.stopPropagation(); addToCart(${product.id})" ${product.quantity === 0 ? 'disabled' : ''}>
                                     ${product.quantity === 0 ? 'Out of Stock' : 'Add to Cart'}
                                 </button>
                             </div>
@@ -2829,7 +2843,7 @@
             let paginationHTML = '';
             
             // Previous button
-            paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}><i class="fas fa-chevron-left"></i></button>`;
+            paginationHTML += `<button class="page-button" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}><i class="fas fa-chevron-left"></i></button>`;
             
             // Page numbers
             const maxVisiblePages = 5;
@@ -2841,11 +2855,11 @@
             }
             
             for (let i = startPage; i <= endPage; i++) {
-                paginationHTML += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+                paginationHTML += `<button class="page-button ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
             }
             
             // Next button
-            paginationHTML += `<button class="page-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}><i class="fas fa-chevron-right"></i></button>`;
+            paginationHTML += `<button class="page-button" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}><i class="fas fa-chevron-right"></i></button>`;
             
             elements.pagination.innerHTML = paginationHTML;
         }
@@ -2938,11 +2952,23 @@
             });
             document.querySelector('#category-list li[data-category="all"]').classList.add('active');
             
+            // Reset mobile category filter
+            document.querySelectorAll('#mobile-category-list li').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector('#mobile-category-list li[data-category="all"]').classList.add('active');
+            
             // Reset status filter
             document.querySelectorAll('#status-filter li').forEach(item => {
                 item.classList.remove('active');
             });
             document.querySelector('#status-filter li[data-status="all"]').classList.add('active');
+            
+            // Reset mobile status filter
+            document.querySelectorAll('#mobile-status-filter li').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector('#mobile-status-filter li[data-status="all"]').classList.add('active');
             
             // Reset search
             elements.searchInput.value = '';
@@ -2959,8 +2985,8 @@
             renderProducts();
             
             // Close mobile sidebar
-            elements.sidebar.classList.remove('active');
-            elements.sidebarOverlay.classList.remove('active');
+            elements.mobileSidebar.classList.remove('active');
+            elements.mobileSidebarOverlay.classList.remove('active');
         }
         
         function performSearch() {
@@ -3129,6 +3155,7 @@
         function updateCartCount() {
             const count = cart.reduce((total, item) => total + item.quantity, 0);
             elements.cartCount.textContent = count;
+            elements.mobileCartCount.textContent = count;
         }
         
         function buyNow(productId) {
@@ -3169,12 +3196,14 @@
             
             // Update UI
             document.querySelectorAll('.payment-option').forEach(option => {
-                option.classList.remove('selected');
+                option.style.borderColor = 'var(--gray-300)';
+                option.style.backgroundColor = 'white';
                 option.querySelector('input').checked = false;
             });
             
             const selectedOption = document.getElementById(method).parentElement;
-            selectedOption.classList.add('selected');
+            selectedOption.style.borderColor = 'var(--primary-500)';
+            selectedOption.style.backgroundColor = 'var(--primary-50)';
             selectedOption.querySelector('input').checked = true;
         }
         
@@ -3289,6 +3318,7 @@
                                 
                                 // Update UI
                                 elements.userText.textContent = currentUser.name.split(' ')[0];
+                                elements.mobileUserText.textContent = currentUser.name.split(' ')[0];
                                 elements.loginLink.style.display = 'none';
                                 elements.logoutLink.style.display = 'block';
                                 elements.myOrdersLink.style.display = 'block';
@@ -3298,6 +3328,7 @@
                     // User is signed out
                     currentUser = null;
                     elements.userText.textContent = 'Login';
+                    elements.mobileUserText.textContent = 'Account';
                     elements.loginLink.style.display = 'block';
                     elements.logoutLink.style.display = 'none';
                     elements.myOrdersLink.style.display = 'none';
@@ -3335,6 +3366,7 @@
                             
                             // Update UI
                             elements.userText.textContent = currentUser.name.split(' ')[0];
+                            elements.mobileUserText.textContent = currentUser.name.split(' ')[0];
                             elements.loginLink.style.display = 'none';
                             elements.logoutLink.style.display = 'block';
                             elements.myOrdersLink.style.display = 'block';
@@ -3398,6 +3430,7 @@
                                 
                                 // Update UI
                                 elements.userText.textContent = currentUser.name.split(' ')[0];
+                                elements.mobileUserText.textContent = currentUser.name.split(' ')[0];
                                 elements.loginLink.style.display = 'none';
                                 elements.logoutLink.style.display = 'block';
                                 elements.myOrdersLink.style.display = 'block';
@@ -3424,6 +3457,7 @@
         function logoutUser() {
             currentUser = null;
             elements.userText.textContent = 'Login';
+            elements.mobileUserText.textContent = 'Account';
             elements.loginLink.style.display = 'block';
             elements.logoutLink.style.display = 'none';
             elements.myOrdersLink.style.display = 'none';
@@ -3449,10 +3483,10 @@
                                   order.status === 'Shipped' ? 'status-shipped' : 'status-cancelled';
                 
                 ordersHTML += `
-                    <div style="background: white; padding: 15px; border-radius: 4px; margin-bottom: 15px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
+                    <div style="background: white; padding: 15px; border-radius: var(--radius-md); margin-bottom: 15px; box-shadow: var(--shadow-1);">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <strong>Order ID: ${order.id}</strong>
-                            <span class="order-status ${statusClass}">${order.status}</span>
+                            <span class="order-status ${statusClass}" style="padding: 4px 8px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; display: inline-block;">${order.status}</span>
                         </div>
                         <div>Date: ${new Date(order.date).toLocaleDateString()}</div>
                         <div>Total: ₹${order.total.toLocaleString()}</div>
@@ -3468,8 +3502,8 @@
             ordersModal.innerHTML = `
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3>My Orders</h3>
-                        <button class="close-modal" onclick="this.closest('.modal').remove()">&times;</button>
+                        <h3 class="modal-title">My Orders</h3>
+                        <button class="modal-close" onclick="this.closest('.modal').remove()">&times;</button>
                     </div>
                     <div class="modal-body">
                         ${ordersHTML}
@@ -3486,8 +3520,8 @@
             
             if (password === '1583') {
                 // Show admin panel
-                elements.adminLogin.classList.remove('active');
-                elements.adminPanel.classList.add('active');
+                elements.adminLogin.style.display = 'none';
+                elements.adminPanel.style.display = 'block';
                 
                 // Load data
                 updateOrdersTable();
@@ -3521,13 +3555,14 @@
         function switchAdminTab(tabId) {
             // Update tabs
             elements.adminTabs.forEach(tab => {
-                tab.classList.toggle('active', tab.getAttribute('data-tab') === tabId);
+                tab.style.color = tab.getAttribute('data-tab') === tabId ? 'var(--primary-500)' : 'var(--gray-600)';
+                tab.style.borderBottom = tab.getAttribute('data-tab') === tabId ? '2px solid var(--primary-500)' : 'none';
             });
             
             // Update content
-            elements.ordersTab.classList.toggle('active', tabId === 'orders');
-            elements.productsTab.classList.toggle('active', tabId === 'products');
-            elements.usersTab.classList.toggle('active', tabId === 'users');
+            elements.ordersTab.style.display = tabId === 'orders' ? 'block' : 'none';
+            elements.productsTab.style.display = tabId === 'products' ? 'block' : 'none';
+            elements.usersTab.style.display = tabId === 'users' ? 'block' : 'none';
         }
         
         function loadOrders() {
@@ -3567,9 +3602,9 @@
                 elements.ordersTableBody.innerHTML = `
                     <tr>
                         <td colspan="7" style="text-align: center; padding: 30px;">
-                            <div class="empty-state">
-                                <i class="fas fa-clipboard-list"></i>
-                                <h3>No orders yet</h3>
+                            <div style="text-align: center; padding: 40px 20px; color: var(--gray-500);">
+                                <i class="fas fa-clipboard-list" style="font-size: 50px; margin-bottom: 15px; color: var(--gray-300);"></i>
+                                <h3 style="color: var(--gray-700); margin-bottom: 10px;">No orders yet</h3>
                                 <p>Orders will appear here when customers place them.</p>
                             </div>
                         </td>
@@ -3604,39 +3639,39 @@
                 
                 tableHTML += `
                     <tr>
-                        <td><strong>${order.id}</strong></td>
-                        <td>
+                        <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200);"><strong>${order.id}</strong></td>
+                        <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200);">
                             <div style="font-weight: 500;">${order.userName}</div>
-                            <div style="font-size: 12px; color: #666;">${order.userPhone}</div>
+                            <div style="font-size: 12px; color: var(--gray-600);">${order.userPhone}</div>
                         </td>
-                        <td title="${order.userAddress || ''}">
+                        <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200);" title="${order.userAddress || ''}">
                             ${shortAddress}
-                            <button class="view-address-btn" onclick="viewFullAddress('${order.id}')">
+                            <button class="view-address-btn" onclick="viewFullAddress('${order.id}')" style="background: none; border: none; color: var(--primary-500); cursor: pointer; font-size: 12px; padding: 2px 5px; margin-left: 5px;">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </td>
-                        <td>${formattedDate}</td>
-                        <td><strong>₹${order.total.toLocaleString()}</strong></td>
-                        <td>
-                            <span class="order-status ${statusClass}">${order.status}</span>
+                        <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200);">${formattedDate}</td>
+                        <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200);"><strong>₹${order.total.toLocaleString()}</strong></td>
+                        <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200);">
+                            <span class="order-status ${statusClass}" style="padding: 4px 8px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; display: inline-block;">${order.status}</span>
                         </td>
-                        <td>
+                        <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--gray-200);">
                             ${order.status === 'Pending' ? `
-                                <button class="deliver-btn" onclick="markAsDelivered('${order.id}')">
+                                <button class="deliver-btn" onclick="markAsDelivered('${order.id}')" style="background-color: var(--success); color: white; border: none; padding: 6px 12px; border-radius: var(--radius-md); cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 5px;">
                                     <i class="fas fa-check"></i> Mark as Delivered
                                 </button>
                             ` : ''}
                             ${order.status === 'Shipped' ? `
-                                <button class="deliver-btn" onclick="markAsDelivered('${order.id}')">
+                                <button class="deliver-btn" onclick="markAsDelivered('${order.id}')" style="background-color: var(--success); color: white; border: none; padding: 6px 12px; border-radius: var(--radius-md); cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 5px;">
                                     <i class="fas fa-check"></i> Mark as Delivered
                                 </button>
                             ` : ''}
                             ${order.status === 'Delivered' ? `
-                                <button class="deliver-btn" disabled>
+                                <button class="deliver-btn" disabled style="background-color: var(--gray-300); color: white; border: none; padding: 6px 12px; border-radius: var(--radius-md); font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: not-allowed;">
                                     <i class="fas fa-check-circle"></i> Delivered
                                 </button>
                             ` : ''}
-                            <button class="btn-primary" style="padding: 6px 12px; font-size: 12px; margin-top: 5px;" 
+                            <button class="btn-primary" style="padding: 6px 12px; font-size: 12px; margin-top: 5px; background: var(--primary-500); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;" 
                                     onclick="viewOrderDetails('${order.id}')">
                                 View Details
                             </button>
@@ -3648,48 +3683,48 @@
             elements.ordersTableBody.innerHTML = tableHTML;
         }
         
-        // FIXED: Admin Panel में सभी 89 products दिखाएगा
+        // FIXED: Admin Panel में सभी 123 products दिखाएगा
         function updateAdminProducts() {
             if (products.length === 0) {
                 elements.adminProducts.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-box"></i>
-                        <h3>No products</h3>
+                    <div style="text-align: center; padding: 40px 20px; color: var(--gray-500);">
+                        <i class="fas fa-box" style="font-size: 50px; margin-bottom: 15px; color: var(--gray-300);"></i>
+                        <h3 style="color: var(--gray-700); margin-bottom: 10px;">No products</h3>
                         <p>Products will appear here when added to inventory.</p>
                     </div>
                 `;
                 return;
             }
             
-            let productsHTML = '<div class="admin-products-grid">';
+            let productsHTML = '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; max-height: 500px; overflow-y: auto; padding: 10px;">';
             
-            // Show ALL 89 products
+            // Show ALL 123 products
             products.forEach(product => {
-                let statusClass = 'in-stock';
-                if (product.status === 'Low Stock') statusClass = 'low-stock';
-                if (product.quantity === 0) statusClass = 'out-stock';
+                let statusClass = 'status-in-stock';
+                if (product.status === 'Low Stock') statusClass = 'status-low-stock';
+                if (product.quantity === 0) statusClass = 'status-out-stock';
                 
                 const imageUrl = getProductImage(product.name, product.category, product.id);
                 
                 productsHTML += `
-                    <div class="admin-product-card">
+                    <div style="border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 15px; background: white;">
                         <div style="display: flex; gap: 15px; margin-bottom: 10px;">
-                            <div style="width: 80px; height: 80px; background: #f5f5f5; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                            <div style="width: 80px; height: 80px; background: var(--gray-100); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
                                 <img src="${imageUrl}" alt="${product.name}" style="max-width: 100%; max-height: 100%;">
                             </div>
                             <div style="flex-grow: 1;">
-                                <h4 style="margin: 0 0 5px 0;">${product.name}</h4>
-                                <div style="font-size: 14px; color: #666;">ID: ${product.id}</div>
-                                <div style="font-size: 14px; color: #666;">Category: ${product.category}</div>
+                                <h4 style="margin: 0 0 5px 0; color: var(--gray-900);">${product.name}</h4>
+                                <div style="font-size: 14px; color: var(--gray-600);">ID: ${product.id}</div>
+                                <div style="font-size: 14px; color: var(--gray-600);">Category: ${product.category}</div>
                             </div>
                         </div>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <div style="font-weight: bold; font-size: 16px;">₹${product.price.toLocaleString()}</div>
+                                <div style="font-weight: bold; font-size: 16px; color: var(--gray-900);">₹${product.price.toLocaleString()}</div>
                                 <div class="product-status ${statusClass}" style="margin-top: 5px;">${product.quantity} units</div>
                             </div>
                             <div style="text-align: right;">
-                                <div style="font-size: 12px; color: #666;">SKU: GMA-${product.id.toString().padStart(4, '0')}</div>
+                                <div style="font-size: 12px; color: var(--gray-600);">SKU: GMA-${product.id.toString().padStart(4, '0')}</div>
                             </div>
                         </div>
                     </div>
@@ -3703,9 +3738,9 @@
         function updateAdminUsers() {
             if (users.length === 0) {
                 elements.adminUsers.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-users"></i>
-                        <h3>No users yet</h3>
+                    <div style="text-align: center; padding: 40px 20px; color: var(--gray-500);">
+                        <i class="fas fa-users" style="font-size: 50px; margin-bottom: 15px; color: var(--gray-300);"></i>
+                        <h3 style="color: var(--gray-700); margin-bottom: 10px;">No users yet</h3>
                         <p>Users will appear here when they register.</p>
                     </div>
                 `;
@@ -3717,11 +3752,11 @@
             // Show ALL users
             users.forEach(user => {
                 usersHTML += `
-                    <div style="padding: 12px 0; border-bottom: 1px solid #eee;">
-                        <div style="font-weight: 500;">${user.name}</div>
-                        <div style="font-size: 14px; color: #666;">${user.email}</div>
-                        <div style="font-size: 14px; color: #666;">Phone: ${user.phone}</div>
-                        <div style="font-size: 12px; color: #999; margin-top: 5px;">Address: ${user.address || 'Not provided'}</div>
+                    <div style="padding: 12px 0; border-bottom: 1px solid var(--gray-200);">
+                        <div style="font-weight: 500; color: var(--gray-900);">${user.name}</div>
+                        <div style="font-size: 14px; color: var(--gray-600);">${user.email}</div>
+                        <div style="font-size: 14px; color: var(--gray-600);">Phone: ${user.phone}</div>
+                        <div style="font-size: 12px; color: var(--gray-600); margin-top: 5px;">Address: ${user.address || 'Not provided'}</div>
                     </div>
                 `;
             });
@@ -3764,7 +3799,7 @@
             let itemsHTML = '';
             order.items.forEach(item => {
                 itemsHTML += `
-                    <div style="display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #eee;">
+                    <div style="display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--gray-200);">
                         <span>${item.name} x ${item.quantity}</span>
                         <span>₹${item.subtotal.toLocaleString()}</span>
                     </div>
@@ -3780,13 +3815,13 @@
                 <div class="modal active">
                     <div class="modal-content" style="max-width: 600px;">
                         <div class="modal-header">
-                            <h3>Order Details - ${order.id}</h3>
-                            <button class="close-modal" onclick="this.closest('.modal').remove()">&times;</button>
+                            <h3 class="modal-title">Order Details - ${order.id}</h3>
+                            <button class="modal-close" onclick="this.closest('.modal').remove()">&times;</button>
                         </div>
                         <div class="modal-body">
                             <div style="margin-bottom: 20px;">
-                                <h4>Customer Information</h4>
-                                <div style="background: #f9f9f9; padding: 15px; border-radius: 4px;">
+                                <h4 style="margin-bottom: 10px;">Customer Information</h4>
+                                <div style="background: var(--gray-50); padding: 15px; border-radius: var(--radius-md);">
                                     <p><strong>Name:</strong> ${order.userName}</p>
                                     <p><strong>Phone:</strong> ${order.userPhone}</p>
                                     <p><strong>Email:</strong> ${order.userEmail}</p>
@@ -3795,10 +3830,10 @@
                             </div>
                             
                             <div style="margin-bottom: 20px;">
-                                <h4>Order Items</h4>
-                                <div style="background: #f9f9f9; padding: 15px; border-radius: 4px;">
+                                <h4 style="margin-bottom: 10px;">Order Items</h4>
+                                <div style="background: var(--gray-50); padding: 15px; border-radius: var(--radius-md);">
                                     ${itemsHTML}
-                                    <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 2px solid #ddd; margin-top: 10px;">
+                                    <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 2px solid var(--gray-300); margin-top: 10px;">
                                         <strong>Total:</strong>
                                         <strong>₹${order.total.toLocaleString()}</strong>
                                     </div>
@@ -3806,11 +3841,11 @@
                             </div>
                             
                             <div>
-                                <h4>Order Information</h4>
-                                <div style="background: #f9f9f9; padding: 15px; border-radius: 4px;">
+                                <h4 style="margin-bottom: 10px;">Order Information</h4>
+                                <div style="background: var(--gray-50); padding: 15px; border-radius: var(--radius-md);">
                                     <p><strong>Order Date:</strong> ${new Date(order.date).toLocaleString()}</p>
                                     <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
-                                    <p><strong>Status:</strong> <span class="order-status ${statusClass}">${order.status}</span></p>
+                                    <p><strong>Status:</strong> <span class="order-status ${statusClass}" style="padding: 4px 8px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; display: inline-block;">${order.status}</span></p>
                                     <p><strong>Subtotal:</strong> ₹${order.subtotal.toLocaleString()}</p>
                                     <p><strong>Shipping:</strong> ₹${order.shipping.toLocaleString()}</p>
                                     <p><strong>Total Amount:</strong> ₹${order.total.toLocaleString()}</p>
@@ -3819,7 +3854,7 @@
                             
                             ${order.status !== 'Delivered' && order.status !== 'Cancelled' ? `
                             <div style="margin-top: 20px; text-align: center;">
-                                <button class="deliver-btn" style="padding: 10px 20px; font-size: 14px;" onclick="markAsDelivered('${order.id}'); this.closest('.modal').remove();">
+                                <button class="deliver-btn" style="padding: 10px 20px; font-size: 14px; background-color: var(--success); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;" onclick="markAsDelivered('${order.id}'); this.closest('.modal').remove();">
                                     <i class="fas fa-check"></i> Mark as Delivered
                                 </button>
                             </div>
